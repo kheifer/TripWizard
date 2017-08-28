@@ -13,8 +13,7 @@ public class Country {
     private int outdoorsy;
 
 
-    public Country(int id, String name, String longitude, String latitude, int budget, String season, int arts, int nightlife, int outdoorsy) {
-        this.id = id;
+    public Country(String name, String longitude, String latitude, int budget, String season, int arts, int nightlife, int outdoorsy) {
         this.name = name;
         this.longitude = longitude;
         this.latitude = latitude;

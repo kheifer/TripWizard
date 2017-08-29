@@ -6,22 +6,22 @@ package models;
 public class UserPreferences {
     private Double maxBudget;
     private String season;
-    private double latitude;
-    private double longitude;
+    private String latitude;
+    private String longitude;
     private int nightLife;
     private int arts;
-    private int outDoors;
+    private int outdoors;
     private int userId;
     private int id;
 
-    public UserPreferences(Double maxBudget, String season, double latitude, double longitude, int nightLife, int arts, int outDoors, int userId) {
+    public UserPreferences(Double maxBudget, String season, String latitude, String longitude, int nightLife, int arts, int outDoors, int userId) {
         this.maxBudget = maxBudget;
         this.season = season;
         this.latitude = latitude;
         this.longitude = longitude;
         this.nightLife = nightLife;
         this.arts = arts;
-        this.outDoors = outDoors;
+        this.outdoors = outDoors;
         this.userId = userId;
     }
 
@@ -32,10 +32,10 @@ public class UserPreferences {
     public String getSeason() {
         return season;
     }
-    public double getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
-    public double getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
     public int getNightLife() {
@@ -45,7 +45,7 @@ public class UserPreferences {
         return arts;
     }
     public int getOutDoors() {
-        return outDoors;
+        return outdoors;
     }
     public int getUserId() {
         return userId;
@@ -55,39 +55,30 @@ public class UserPreferences {
     }
 
     //Setters
-
     public void setMaxBudget(Double maxBudget) {
         this.maxBudget = maxBudget;
     }
-
     public void setSeason(String season) {
         this.season = season;
     }
-
-    public void setLatitude(double latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
-
-    public void setLongitude(double longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
-
     public void setNightLife(int nightLife) {
         this.nightLife = nightLife;
     }
-
     public void setArts(int arts) {
         this.arts = arts;
     }
-
     public void setOutDoors(int outDoors) {
-        this.outDoors = outDoors;
+        this.outdoors = outDoors;
     }
-
     public void setUserId(int userId) {
         this.userId = userId;
     }
-
     public void setId(int id) {
         this.id = id;
     }

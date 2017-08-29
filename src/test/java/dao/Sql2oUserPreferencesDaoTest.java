@@ -47,6 +47,14 @@ public class Sql2oUserPreferencesDaoTest {
         UserPreferences found = userPreferencesDao.findById(find);
         assertEquals(userPreferences.getArts(), found.getArts());
     }
+    public void getAll() throws Exception {
+        UserPreferences userPreferences = newUserPref();
+        UserPreferences userPreferences1 = newUserPref();
+        userPreferencesDao.add(userPreferences);
+        userPreferencesDao.add(userPreferences1);
+        int count =userPreferencesDao.getAll().size();
+        assertEquals(1, count);
+    }
 
     @Test
     public void update() throws Exception {
@@ -54,6 +62,13 @@ public class Sql2oUserPreferencesDaoTest {
 
     @Test
     public void deleteById() throws Exception {
+        UserPreferences userPreferences = newUserPref();
+        userPreferencesDao.add(userPreferences);
+        int count = userPreferencesDao.getAll().size();
+        assertEquals(1, count);
+        int find = userPreferences.getId();
+        userPreferencesDao.deleteById(find);
+        assertEquals(0, userPreferencesDao.getAll().size());
     }
 
     //helper method

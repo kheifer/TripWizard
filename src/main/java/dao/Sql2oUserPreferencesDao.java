@@ -7,6 +7,8 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 
+import java.util.List;
+
 public class Sql2oUserPreferencesDao implements UserPreferencesDao{
     private Sql2o sql2o;
 
@@ -39,13 +41,28 @@ public class Sql2oUserPreferencesDao implements UserPreferencesDao{
     }
 
     @Override
+    public List<UserPreferences> getAll() {
+        String query = "SELECT * FROM user_preferences";
+        try(Connection con = sql2o.open()){
+            return con.createQuery(query)
+                    .executeAndFetch(UserPreferences.class);
+        }
+    }
+
+    @Override
     public void update(Double maxBudget, String season, String latitude, String longitude, int nightLife, int arts, int outDoors, int userId, int id) {
 
     }
 
     @Override
     public void deleteById(int id) {
-
+        String query = "DELETE FROM user_preferences WHERE id = :id";
+        try(Connection con = sql2o.open()){
+             con.createQuery(query)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        }catch (Sql2oException ex){
+            System.out.println(ex);
+        }
     }
-
 }

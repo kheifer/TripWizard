@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS user_preferences(
     longitude DOUBLE,
     nightLife INTEGER,
     arts INTEGER,
-    outdoors INTEGER,
+    outdoorsy INTEGER,
     userId INTEGER
 );
 
@@ -31,4 +31,5 @@ CREATE TABLE IF NOT EXISTS countries (
     outdoorsy INTEGER,
 );
 
+INSERT INTO countries (name, budget, season, latitude, longitude, nightLife, arts, outdoorsy) VALUES ("America", 200, "Summer","40.714846", "-74.004423", 5, 5, 4);
 

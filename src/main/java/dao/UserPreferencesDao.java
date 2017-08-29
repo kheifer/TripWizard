@@ -13,11 +13,13 @@ public interface UserPreferencesDao {
 
     List<UserPreferences> getAll();
 
-    void update(Double maxBudget, String season, String latitude, String longitude, int nightLife, int arts, int outDoorsy, int userId, int id);
+    void update(Double maxBudget, String season, String latitude, String longitude, int nightLife, int arts, int outdoorsy, int userId, int id);
 
     void deleteById(int id);
 
     List<Country> budget(int id);
+
+    List<Country> getAllCountries();
 
     List<Country> season(int id);
 }

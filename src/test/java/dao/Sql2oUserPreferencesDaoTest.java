@@ -1,5 +1,6 @@
 package dao;
 
+import models.Country;
 import models.UserPreferences;
 import org.junit.After;
 import org.junit.Before;
@@ -7,6 +8,8 @@ import org.junit.Test;
 import org.sql2o.Sql2o;
 
 import org.sql2o.Connection;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -73,6 +76,22 @@ public class Sql2oUserPreferencesDaoTest {
         int find = userPreferences.getId();
         userPreferencesDao.deleteById(find);
         assertEquals(0, userPreferencesDao.getAll().size());
+    }
+
+    @Test
+    public void budget() throws Exception{
+        UserPreferences userPreferences = newUserPref();
+//        userPreferencesDao.add(userPreferences);
+//        userPreferencesDao.add(userPreferences);
+//        userPreferencesDao.add(userPreferences);
+
+        int id = userPreferences.getId();
+        System.out.println(userPreferencesDao.getAllCountries().size());
+        List<Country> countryList = userPreferencesDao.budget(1);
+        System.out.println(userPreferencesDao.getAllCountries().size());
+        System.out.println(userPreferencesDao.getAllCountries().size());
+        System.out.println(userPreferencesDao.getAllCountries().size());
+        assertEquals(7, countryList.size());
     }
 
     //helper method

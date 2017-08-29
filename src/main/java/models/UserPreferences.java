@@ -14,14 +14,14 @@ public class UserPreferences {
     private int userId;
     private int id;
 
-    public UserPreferences(Double maxBudget, String season, String latitude, String longitude, int nightLife, int arts, int outDoorsy, int userId) {
+    public UserPreferences(Double maxBudget, String season, String latitude, String longitude, int nightLife, int arts, int outdoorsy, int userId) {
         this.maxBudget = maxBudget;
         this.season = season;
         this.latitude = latitude;
         this.longitude = longitude;
         this.nightLife = nightLife;
         this.arts = arts;
-        this.outdoorsy= outDoorsy;
+        this.outdoorsy= outdoorsy;
         this.userId = userId;
     }
 
@@ -44,7 +44,7 @@ public class UserPreferences {
     public int getArts() {
         return arts;
     }
-    public int getOutDoorsy() {
+    public int getOutdoorsy() {
         return outdoorsy;
     }
     public int getUserId() {
@@ -73,8 +73,8 @@ public class UserPreferences {
     public void setArts(int arts) {
         this.arts = arts;
     }
-    public void setOutDoorsy(int outDoors) {
-        this.outdoorsy= outDoors;
+    public void setOutdoorsy(int outdoorsy) {
+        this.outdoorsy= outdoorsy;
     }
     public void setUserId(int userId) {
         this.userId = userId;

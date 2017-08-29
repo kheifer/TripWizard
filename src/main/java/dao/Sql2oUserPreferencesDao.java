@@ -19,7 +19,7 @@ public class Sql2oUserPreferencesDao implements UserPreferencesDao{
 
     @Override
     public void add(UserPreferences userPreferences) {
-        String query = "INSERT INTO user_preferences( maxBudget,  season,  latitude,  longitude, nightLife,  arts,  outdoorsy,  userId) VALUES( :maxBudget,  :season,  :latitude,  :longitude, :nightLife,  :arts,  :outdoorsy,  :userId)";
+        String query = "INSERT INTO user_preferences( maxBudget,  season,  latitude,  longitude, nightLife,  arts,  outdoorsy,  userId) VALUES ( :maxBudget,  :season,  :latitude,  :longitude, :nightLife,  :arts,  :outdoorsy,  :userId)";
         try(Connection con = sql2o.open()){
             int id = (int) con.createQuery(query)
                     .bind(userPreferences)
@@ -90,9 +90,18 @@ public class Sql2oUserPreferencesDao implements UserPreferencesDao{
             Double maxBudget = (Double) con.createQuery(query)
                     .addParameter("id",id)
                     .executeAndFetchFirst(Double.class);
-            String budget ="SELECT * FROM countries WHERE budget BETWEEN 0 AND maxBudget = :maxBudget";
+            String budget ="SELECT * FROM countries WHERE budget BETWEEN 0 AND :maxBudget";
             return con.createQuery(budget)
                     .addParameter("maxBudget", maxBudget)
+                    .executeAndFetch(Country.class);
+        }
+    }
+
+    @Override
+    public List<Country> getAllCountries() {
+        String query = "SELECT * FROM countries";
+        try(Connection con = sql2o.open()){
+            return con.createQuery(query)
                     .executeAndFetch(Country.class);
         }
     }

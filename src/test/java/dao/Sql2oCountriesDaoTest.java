@@ -21,7 +21,7 @@ public class Sql2oCountriesDaoTest {
         Sql2o sql2o = new Sql2o(connectionString, "", "");
         countryDao = new Sql2oCountriesDao(sql2o);
         conn = sql2o.open();
-        countryDao.populate("/Users/Guest/Desktop/TripWizard/src/main/resources/json.txt");
+        countryDao.populate("/Users/Guest/Desktop/TripWizard/src/main/resources/json");
     }
 
     @After

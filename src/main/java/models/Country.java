@@ -6,14 +6,14 @@ public class Country {
     private String name;
     private String longitude;
     private String latitude;
-    private int budget;
+    private double budget;
     private String season;
     private int arts;
     private int nightlife;
     private int outdoorsy;
 
 
-    public Country(String name, String longitude, String latitude, int budget, String season, int arts, int nightlife, int outdoorsy) {
+    public Country(String name, String longitude, String latitude, double budget, String season, int arts, int nightlife, int outdoorsy) {
         this.name = name;
         this.longitude = longitude;
         this.latitude = latitude;
@@ -43,7 +43,7 @@ public class Country {
         return latitude;
     }
 
-    public int getBudget() {
+    public double getBudget() {
         return budget;
     }
 
@@ -81,7 +81,7 @@ public class Country {
         this.latitude = latitude;
     }
 
-    public void setBudget(int budget) {
+    public void setBudget(double budget) {
         this.budget = budget;
     }
 

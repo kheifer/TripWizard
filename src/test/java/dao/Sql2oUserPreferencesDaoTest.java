@@ -58,6 +58,10 @@ public class Sql2oUserPreferencesDaoTest {
 
     @Test
     public void update() throws Exception {
+        UserPreferences userPreferences = newUserPref();
+        userPreferencesDao.add(userPreferences);
+        userPreferencesDao.update(1200.0, "summer", "45", "45", 1, 3, 5, 1, 1);
+        assertEquals("summer", userPreferencesDao.findById(1).getSeason());
     }
 
     @Test

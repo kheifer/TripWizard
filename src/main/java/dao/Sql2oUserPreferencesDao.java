@@ -51,6 +51,22 @@ public class Sql2oUserPreferencesDao implements UserPreferencesDao{
 
     @Override
     public void update(Double maxBudget, String season, String latitude, String longitude, int nightLife, int arts, int outDoors, int userId, int id) {
+        String query = "UPDATE user_preferences SET (maxBudget, season, latitude, longitude, nightLife, arts, outDoors, userId) =(:maxBudget, :season, :latitude, :longitude, :nightLife, :arts, :outDoors, :userId) WHERE id = :id";
+        try(Connection con = sql2o.open()){
+            con.createQuery(query)
+                    .addParameter("maxBudget", maxBudget)
+                    .addParameter("season", season)
+                    .addParameter("latitude", latitude)
+                    .addParameter("longitude", longitude)
+                    .addParameter("nightLife", nightLife)
+                    .addParameter("arts", arts)
+                    .addParameter("outDoors", outDoors)
+                    .addParameter("userId", userId)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        }catch (Sql2oException ex){
+            System.out.println(ex);
+        }
 
     }
 

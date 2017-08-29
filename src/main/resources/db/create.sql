@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS users_preferences(
     longitude DOUBLE,
     nightLife INTEGER,
     arts INTEGER,
-    outdoorsyy INTEGER,
+    outdoorsy INTEGER,
     userId INTEGER
 );
 

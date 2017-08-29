@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 
 public interface CountriesDao {
 
-    void populate(Gson countryGson);
+    void populate(String filePath);
 
     void deleteById(int id);
 

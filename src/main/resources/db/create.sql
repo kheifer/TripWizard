@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS users_preferences(
     season VARCHAR,
     latitude DOUBLE,
     longitude DOUBLE,
-    nightLife INTEGER,
+    nightlife INTEGER,
     arts INTEGER,
     outdoorsy INTEGER,
     userId INTEGER
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS countries (
     season VARCHAR,
     latitude VARCHAR,
     longitude VARCHAR,
-    nightLife INTEGER,
+    nightlife INTEGER,
     arts INTEGER,
     outdoorsy INTEGER,
 );

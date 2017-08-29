@@ -22,4 +22,6 @@ public interface UserPreferencesDao {
     List<Country> getAllCountries();
 
     List<Country> season(int id);
+
+    List<Country> nightlife(int id);
 }

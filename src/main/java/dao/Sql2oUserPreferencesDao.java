@@ -119,6 +119,8 @@ public class Sql2oUserPreferencesDao implements UserPreferencesDao{
         }
     }
 
+
+
     public void seeder(){
         String first = "INSERT INTO countries (name, budget, season, latitude, longitude, nightLife, arts, outdoorsy) VALUES ('America', 200, 'Summer','40.714846', '-74.004423', 5, 5, 4)";
         String second = "INSERT INTO countries (name, budget, season, latitude, longitude, nightLife, arts, outdoorsy) VALUES ('Belarus', 50,'Spring','53.912691', '27.563156',4, 1, 4)";

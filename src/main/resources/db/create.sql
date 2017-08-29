@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS users(
     duration INTEGER
 );
 
-CREATE TABLE IF NOT EXISTS users_preferences(
+CREATE TABLE IF NOT EXISTS user_preferences(
     id int PRIMARY KEY auto_increment,
     budget DOUBLE,
     season VARCHAR,

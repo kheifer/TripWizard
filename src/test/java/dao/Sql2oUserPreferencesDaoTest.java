@@ -97,6 +97,31 @@ public class Sql2oUserPreferencesDaoTest {
         assertEquals(1, countryList.size());
     }
 
+    @Test
+    public void nightlifeTest() throws Exception{
+        UserPreferences userPreferences = newUserPref();
+        userPreferencesDao.add(userPreferences);
+        int id = userPreferences.getId();
+        List<Country> countryList = userPreferencesDao.nightlife(id);
+        assertEquals(5, countryList.size());
+    }
+    @Test
+    public void artsTest() throws Exception{
+        UserPreferences userPreferences = newUserPref();
+        userPreferencesDao.add(userPreferences);
+        int id = userPreferences.getId();
+        List<Country> countryList = userPreferencesDao.arts(id);
+        assertEquals(2, countryList.size());
+    }
+    @Test
+    public void outdoorsyTest() throws Exception{
+        UserPreferences userPreferences = newUserPref();
+        userPreferencesDao.add(userPreferences);
+        int id = userPreferences.getId();
+        List<Country> countryList = userPreferencesDao.outdoorsy(id);
+        assertEquals(5, countryList.size());
+    }
+
     //helper method
     UserPreferences newUserPref(){
         return new UserPreferences(200.0, "Spring", "45", "45", 3, 5, 5, 1);

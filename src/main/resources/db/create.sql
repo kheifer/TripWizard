@@ -8,13 +8,13 @@ CREATE TABLE IF NOT EXISTS users(
 
 CREATE TABLE IF NOT EXISTS user_preferences(
     id int PRIMARY KEY auto_increment,
-    budget DOUBLE,
+    maxBudget DOUBLE,
     season VARCHAR,
     latitude DOUBLE,
     longitude DOUBLE,
     nightLife INTEGER,
     arts INTEGER,
-    outdoorsy INTEGER,
+    outdoors INTEGER,
     userId INTEGER
 );
 

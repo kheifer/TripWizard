@@ -1,5 +1,6 @@
 package dao;
 
+import models.UserPreferences;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,7 +33,10 @@ public class Sql2oUserPreferencesDaoTest {
 
     @Test
     public void add() throws Exception {
-
+        UserPreferences userPreferences = newUserPref();
+        int id = userPreferences.getId();
+        userPreferencesDao.add(userPreferences);
+        assertNotEquals(id, userPreferences.getId());
     }
 
     @Test
@@ -45,6 +49,11 @@ public class Sql2oUserPreferencesDaoTest {
 
     @Test
     public void deleteById() throws Exception {
+    }
+
+    //helper method
+    UserPreferences newUserPref(){
+        return new UserPreferences(1200.0, "spring", "45", "45", 3, 5, 5, 1);
     }
 
 }

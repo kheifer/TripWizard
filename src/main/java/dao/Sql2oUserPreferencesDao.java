@@ -1,6 +1,7 @@
 package dao;
 
 
+import models.User;
 import models.UserPreferences;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -29,7 +30,12 @@ public class Sql2oUserPreferencesDao implements UserPreferencesDao{
 
     @Override
     public UserPreferences findById(int id) {
-        return null;
+        String query = "SELECT * FROM user_preferences WHERE id = :id";
+        try(Connection con = sql2o.open()){
+            return con.createQuery(query)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(UserPreferences.class);
+        }
     }
 
     @Override

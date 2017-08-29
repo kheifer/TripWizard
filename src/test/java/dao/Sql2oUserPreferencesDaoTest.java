@@ -41,6 +41,11 @@ public class Sql2oUserPreferencesDaoTest {
 
     @Test
     public void findById() throws Exception {
+        UserPreferences userPreferences = newUserPref();
+        userPreferencesDao.add(userPreferences);
+        int find = userPreferences.getId();
+        UserPreferences found = userPreferencesDao.findById(find);
+        assertEquals(userPreferences.getArts(), found.getArts());
     }
 
     @Test

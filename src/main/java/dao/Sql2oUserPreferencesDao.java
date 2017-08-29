@@ -20,7 +20,7 @@ public class Sql2oUserPreferencesDao implements UserPreferencesDao{
     @Override
     public void add(UserPreferences userPreferences) {
         String query = "INSERT INTO user_preferences( maxBudget,  season,  latitude,  longitude, nightLife,  arts,  outdoorsy,  userId) VALUES ( :maxBudget,  :season,  :latitude,  :longitude, :nightLife,  :arts,  :outdoorsy,  :userId)";
-        try(Connection con = sql2o.open()){
+   try(Connection con = sql2o.open()){
             int id = (int) con.createQuery(query)
                     .bind(userPreferences)
                     .executeUpdate()
@@ -116,6 +116,33 @@ public class Sql2oUserPreferencesDao implements UserPreferencesDao{
             return con.createQuery("SELECT * FROM countries WHERE season = :season")
                     .addParameter("season", season)
                     .executeAndFetch(Country.class);
+        }
+    }
+
+    public void seeder(){
+        String first = "INSERT INTO countries (name, budget, season, latitude, longitude, nightLife, arts, outdoorsy) VALUES ('America', 200, 'Summer','40.714846', '-74.004423', 5, 5, 4)";
+        String second = "INSERT INTO countries (name, budget, season, latitude, longitude, nightLife, arts, outdoorsy) VALUES ('Belarus', 50,'Spring','53.912691', '27.563156',4, 1, 4)";
+        String third = "INSERT INTO countries (name, budget, season, latitude, longitude, nightLife, arts, outdoorsy) VALUES ('Nepal', 25,'Summer', '27.717245','85.32396', 1, 1, 5)";
+        String fourth = "INSERT INTO countries (name, budget, season, latitude, longitude, nightLife, arts, outdoorsy) VALUES ( 'Australia', 250,'Fall','-33.86882', '151.209296', 4, 3, 2)";
+        String fifth = "INSERT INTO countries (name, budget, season, latitude, longitude, nightLife, arts, outdoorsy) VALUES ('Italy',130,'Fall','41.902783','12.496366', 4, 5, 4)";
+       String sixth ="INSERT INTO countries (name, budget, season, latitude, longitude, nightLife, arts, outdoorsy) VALUES ('Ireland', 150,'Summer', '53.349805','-6.26031', 3, 3, 2)";
+        String seventh = "INSERT INTO countries (name, budget, season, latitude, longitude, nightLife, arts, outdoorsy) VALUES ('Canada', 180,'Summer', '43.653226','-79.383184',3, 3, 5)";
+
+        try(Connection con = sql2o.open()){
+             con.createQuery(first)
+                    .executeUpdate();
+            con.createQuery(second)
+                    .executeUpdate();
+            con.createQuery(third)
+                    .executeUpdate();
+            con.createQuery(fourth)
+                    .executeUpdate();
+            con.createQuery(fifth)
+                    .executeUpdate();
+            con.createQuery(sixth)
+                    .executeUpdate();
+            con.createQuery(seventh)
+                    .executeUpdate();
         }
     }
 }

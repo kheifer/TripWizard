@@ -80,23 +80,21 @@ public class Sql2oUserPreferencesDaoTest {
 
     @Test
     public void budget() throws Exception{
+        userPreferencesDao.seeder();
         UserPreferences userPreferences = newUserPref();
-//        userPreferencesDao.add(userPreferences);
-//        userPreferencesDao.add(userPreferences);
-//        userPreferencesDao.add(userPreferences);
-
+        userPreferencesDao.add(userPreferences);
         int id = userPreferences.getId();
         System.out.println(userPreferencesDao.getAllCountries().size());
         List<Country> countryList = userPreferencesDao.budget(1);
         System.out.println(userPreferencesDao.getAllCountries().size());
         System.out.println(userPreferencesDao.getAllCountries().size());
         System.out.println(userPreferencesDao.getAllCountries().size());
-        assertEquals(7, countryList.size());
+        assertEquals(6, countryList.size());
     }
 
     //helper method
     UserPreferences newUserPref(){
-        return new UserPreferences(1200.0, "spring", "45", "45", 3, 5, 5, 1);
+        return new UserPreferences(200.0, "spring", "45", "45", 3, 5, 5, 1);
     }
 
 }

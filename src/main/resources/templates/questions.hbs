@@ -1,13 +1,72 @@
 {{#partial "content"}}
     <form action="">
+
+
+
+        <!--<input id="ex1" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="3"/>-->
+        <!--<span id="ex1CurrentSliderValLabel">Importance: <span id="ex1SliderVal">3</span></span>-->
         <div class="form-group">
-            <label for="name">Your name: </label>
-            <input id="name" name="name" type="text" required>
+            <h3>What season do you want to travel?</h3>
+            <div class="radio">
+                <label><input type="radio" name="season" value="summer">Summer</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="season" value="fall">Fall</label>
+            </div>
+            <div class="radio disabled">
+                <label><input type="radio" name="season" value="winter">Winter</label>
+            </div>
+            <div class="radio disabled">
+                <label><input type="radio" name="season" value="spring">Spring</label>
+            </div>
         </div>
         <div class="form-group">
-            <label for="duration">How many days are you looking to travel for?</label>
-            <input id="name" name="duration" type="text" required>
+            <h3>How important is nightlife to you?</h3>
+            <div class="radio">
+                <label><input type="radio" name="nightlife" value="1">Not at all</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="nightlife" value="3">Somewhat</label>
+            </div>
+            <div class="radio disabled">
+                <label><input type="radio" name="nightlife" value="5">Most important</label>
+            </div>
         </div>
+        <div class="form-group">
+            <h3>How important are the arts to you?</h3>
+            <div class="radio">
+                <label><input type="radio" name="arts" value="1">Not at all</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="arts" value="3">Somewhat</label>
+            </div>
+            <div class="radio disabled">
+                <label><input type="radio" name="arts" value="5">Most important</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <h3>How important are the outdoors to you?</h3>
+            <div class="radio">
+                <label><input type="radio" name="outdoorsy" value="1">Not at all</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="outdoorsy" value="3">Somewhat</label>
+            </div>
+            <div class="radio disabled">
+                <label><input type="radio" name="outdoorsy" value="5">Most important</label>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
         <button type="submit" class="btn btn-info">Continue</button>
     </form>
 

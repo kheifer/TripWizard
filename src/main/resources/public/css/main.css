@@ -74,9 +74,7 @@ a {
     font-size: 0.95em;
   }
 }
-.longitude, .latitude{
-   display: none;
-}
+
 
 /* ---- Intro ---- */
 #intro {

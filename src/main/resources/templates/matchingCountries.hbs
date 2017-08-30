@@ -2,12 +2,39 @@
     <div class="container">
         {{#if matches}}
             {{#each matches}}
+                <div class="container">
+                    <h3>{{name}}</h3>
+                    <h3>{{nightlife}}</h3>
+                    <button class="btn btn-warning">Details</button>
+                    <!--<p class="latitude hideIt">{{latitude}}</p>-->
+                    <!--<p class ="longitude hideIt">{{longitude}}</p>-->
+                    <div id ="map-canvas-{{id}}" style="width:304px;height:228px;" >
+                    </div>
+                    <script>
+                                function initialize(latitude, longitude, homies) {
 
-                <h3>{{name}}</h3>
-                <h3>{{nightlife}}</h3>
-                 <p class="latitude">{{latitude}}</p>
-                 <p class ="longitude">{{longitude}}</p>
-                <div id ="map-canvas" style="width:304px;height:228px;" onload="initialize()" onunload="GUnload()">
+                                    alert(latitude);
+
+
+                                    var myLatLng = new google.maps.LatLng(latitude,longitude);
+                                    var map = new google.maps.Map(document.getElementById("map-canvas-" + homies),
+                                    {
+                                        zoom: 10,
+                                        center: myLatLng,
+                                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                                    });
+
+                                    var marker = new google.maps.Marker(
+                                    {
+                                        position: myLatLng,
+                                        map: map,
+                                    });
+                                };
+                                initialize({{latitude}}, {{longitude}}, {{id}});
+
+
+
+                                </script>
                 </div>
             {{/each}}
         {{else}}

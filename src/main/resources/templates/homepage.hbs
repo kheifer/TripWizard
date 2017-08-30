@@ -15,11 +15,15 @@
             </div>
             <div class="form-group">
                 <label for="duration">How many days are you looking to travel for?</label>
-                <input id="name" name="duration" type="text" required>
+                <input id="duration" name="duration" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="30" data-slider-step="1" data-slider-value="3">
             </div>
             <button type="submit" class="btn btn-info">Continue</button>
         </form>
     </div>
+    <script>
+    var slider = new Slider("#duration", {
+	tooltip: 'always'
+});</script>
 {{/partial}}
 
 {{> layout2.hbs}}

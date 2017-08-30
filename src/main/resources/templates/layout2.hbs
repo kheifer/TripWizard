@@ -1,12 +1,22 @@
+{{#block "header"}}
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>{{#block "title"}}TripWizard{{/block}}</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='/css/main.css'>
+        <link href="https://fonts.googleapis.com/css?family=Oswald|Quattrocento+Sans" rel="stylesheet">
+    </head>
 <header id='main-header'>
     <div class='container'>
-        <a class='logo' href='#'>Guided Tours</a>
+        <a class='logo' href='#'>Trip Wizard</a>
         <nav>
             <a href='#'>Tours</a>
             <a href='#'>Pricing</a>
         </nav>
     </div>
 </header>
+    {{/block}}
 <div id='intro'>
     <div class='cta container'>
         <img alt='Splash' class='splash' src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/203277/adventure-splash.svg'>
@@ -17,6 +27,10 @@
         </a>
     </div>
 </div>
+{{#block "content"}}
+
+{{/block}}
+
 <div id='tours'>
     <div class='container'>
         <h2>Where would you like to go?</h2>
@@ -93,31 +107,11 @@
     </ul>
 </div>
 <div class='container' id='pricing'>
-    <article>
-        <h3>Tier 1</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius adipisci, sed libero. Iste asperiores suscipit, consequatur debitis animi impedit numquam facilis iusto porro labore dolorem, maxime magni incidunt. Delectus, est!</p>
-        <p>Possimus deserunt nisi perferendis, consequuntur odio et aperiam, est, dicta dolor itaque sunt laborum, magni qui optio illum dolore laudantium similique harum. Eveniet quis, libero eligendi delectus repellendus repudiandae ipsum.</p>
-        <a class='button' href='#'>
-            <span>Learn More</span>
-        </a>
-    </article>
-    <article>
-        <h3>Tier 2</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius adipisci, sed libero. Iste asperiores suscipit, consequatur debitis animi impedit numquam facilis iusto porro labore dolorem, maxime magni incidunt. Delectus, est!</p>
-        <p>Possimus deserunt nisi perferendis, consequuntur odio et aperiam, est, dicta dolor itaque sunt laborum, magni qui optio illum dolore laudantium similique harum. Eveniet quis, libero eligendi delectus repellendus repudiandae ipsum.</p>
-        <a class='button' href='#'>
-            <span>Learn More</span>
-        </a>
-    </article>
-    <article>
-        <h3>Tier 3</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius adipisci, sed libero. Iste asperiores suscipit, consequatur debitis animi impedit numquam facilis iusto porro labore dolorem, maxime magni incidunt. Delectus, est!</p>
-        <p>Possimus deserunt nisi perferendis, consequuntur odio et aperiam, est, dicta dolor itaque sunt laborum, magni qui optio illum dolore laudantium similique harum. Eveniet quis, libero eligendi delectus repellendus repudiandae ipsum.</p>
-        <a class='button' href='#'>
-            <span>Learn More</span>
-        </a>
-    </article>
+
 </div>
-<div id='main-footer'>
-    <p>&copy 2016</p>
-</div>
+{{#block "footer"}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </body>
+    </html>
+{{/block}}

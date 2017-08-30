@@ -2,12 +2,19 @@
     <div class="container">
         {{#if matches}}
             {{#each matches}}
+
                 <h3>{{name}}</h3>
                 <h3>{{nightlife}}</h3>
+                 <p class="latitude">{{latitude}}</p>
+                 <p class ="longitude">{{longitude}}</p>
+                <div id ="map-canvas" style="width:304px;height:228px;" onload="initialize()" onunload="GUnload()">
+                </div>
             {{/each}}
         {{else}}
-          <p>oops</p>
+          <p>ooooooops</p>
+
         {{/if}}
+
     </div>
 
 {{/partial}}

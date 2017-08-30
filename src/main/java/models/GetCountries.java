@@ -12,12 +12,10 @@ public class GetCountries {
         arts.retainAll(outdoorsy);
         arts.retainAll(budget);
 
-
         if (arts.isEmpty())
         {
             arts.add(season.get(0));
         }
-
         return arts;
     }
 }

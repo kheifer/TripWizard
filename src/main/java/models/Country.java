@@ -25,17 +25,6 @@ public class Country {
         this.outdoorsy = outdoorsy;
     }
 
-    public Country(String name) {
-        this.name = name;
-        this.latitude = "";
-        this.longitude = "";
-        this.budget = 0;
-        this.season = "";
-        this.arts = 0;
-        this.nightlife = 0;
-        this.outdoorsy = 0;
-    }
-
     // getters
 
     public int getId() {
@@ -112,4 +101,36 @@ public class Country {
         this.outdoorsy = outdoorsy;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Country country = (Country) o;
+
+        if (Double.compare(country.budget, budget) != 0) return false;
+        if (arts != country.arts) return false;
+        if (nightlife != country.nightlife) return false;
+        if (outdoorsy != country.outdoorsy) return false;
+        if (!name.equals(country.name)) return false;
+        if (!longitude.equals(country.longitude)) return false;
+        if (!latitude.equals(country.latitude)) return false;
+        return season.equals(country.season);
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = name.hashCode();
+        result = 31 * result + longitude.hashCode();
+        result = 31 * result + latitude.hashCode();
+        temp = Double.doubleToLongBits(budget);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + season.hashCode();
+        result = 31 * result + arts;
+        result = 31 * result + nightlife;
+        result = 31 * result + outdoorsy;
+        return result;
+    }
 }

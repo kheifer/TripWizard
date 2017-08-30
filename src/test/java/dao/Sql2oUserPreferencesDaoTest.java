@@ -1,6 +1,7 @@
 package dao;
 
 import models.Country;
+import models.GetCountries;
 import models.UserPreferences;
 import org.junit.After;
 import org.junit.Before;
@@ -9,6 +10,7 @@ import org.sql2o.Sql2o;
 
 import org.sql2o.Connection;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -23,9 +25,18 @@ public class Sql2oUserPreferencesDaoTest {
         String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString,"","");
         userPreferencesDao = new Sql2oUserPreferencesDao((sql2o));
+        Sql2oCountriesDao countriesDao = new Sql2oCountriesDao(sql2o);
         con = sql2o.open();
-        userPreferencesDao.seeder();
+        countriesDao.populate("/Users/Guest/Desktop/TripWizard/src/main/resources/json");
+        countriesDao.populate("/Users/Guest/Desktop/TripWizard/src/main/resources/json");
+        countriesDao.populate("/Users/Guest/Desktop/TripWizard/src/main/resources/json");
+        countriesDao.populate("/Users/Guest/Desktop/TripWizard/src/main/resources/json");
+        countriesDao.populate("/Users/Guest/Desktop/TripWizard/src/main/resources/json");
+        countriesDao.populate("/Users/Guest/Desktop/TripWizard/src/main/resources/json");
+
+//        userPreferencesDao.seeder();
     }
+
 
     @After
     public void tearDown() throws Exception {
@@ -82,7 +93,7 @@ public class Sql2oUserPreferencesDaoTest {
         userPreferencesDao.add(userPreferences);
         int id = userPreferences.getUserId();
         List<Country> countryList = userPreferencesDao.budget(id);
-        assertEquals(6, countryList.size());
+        assertEquals(17, countryList.size());
     }
 
     @Test
@@ -91,7 +102,7 @@ public class Sql2oUserPreferencesDaoTest {
         userPreferencesDao.add(userPreferences);
         int id = userPreferences.getUserId();
         List<Country> countryList = userPreferencesDao.season(id);
-        assertEquals(1, countryList.size());
+        assertEquals(4, countryList.size());
     }
 
     @Test
@@ -100,7 +111,7 @@ public class Sql2oUserPreferencesDaoTest {
         userPreferencesDao.add(userPreferences);
         int id = userPreferences.getUserId();
         List<Country> countryList = userPreferencesDao.nightlife(id);
-        assertEquals(5, countryList.size());
+        assertEquals(12, countryList.size());
     }
     @Test
     public void artsTest() throws Exception{
@@ -108,7 +119,7 @@ public class Sql2oUserPreferencesDaoTest {
         userPreferencesDao.add(userPreferences);
         int id = userPreferences.getUserId();
         List<Country> countryList = userPreferencesDao.arts(id);
-        assertEquals(2, countryList.size());
+        assertEquals(6, countryList.size());
     }
     @Test
     public void outdoorsyTest() throws Exception{
@@ -116,17 +127,27 @@ public class Sql2oUserPreferencesDaoTest {
         userPreferencesDao.add(userPreferences);
         int id = userPreferences.getUserId();
         List<Country> countryList = userPreferencesDao.outdoorsy(id);
-        assertEquals(5, countryList.size());
+        assertEquals(12, countryList.size());
     }
 
     @Test
     public void countryFinderMethods() throws  Exception {
-
+        UserPreferences userPreferences = newUserPref();
+        userPreferencesDao.add(userPreferences);
+        int userId = userPreferences.getUserId();
+        List<Country> list1 = userPreferencesDao.arts(userId);
+        List<Country> list2 = userPreferencesDao.nightlife(userId);
+        list1.retainAll(list2);
+        System.out.print(list1);
+        List<Country> list3 = userPreferencesDao.outdoorsy(userId);
+        List<Country> list4 = userPreferencesDao.season(userId);
+        List<Country> list5 = userPreferencesDao.budget(userId);
+        List<Country> results = GetCountries.getResults(list1, list2, list3, list4, list5);
+        assertEquals(7, results.size());
     }
-
     //helper method
     UserPreferences newUserPref(){
-        return new UserPreferences(200.0, "Spring", "45", "45", 3, 5, 5, 1);
+        return new UserPreferences(200.0, "Spring", "45", "45", 3, 3, 5, 1);
     }
 
 }

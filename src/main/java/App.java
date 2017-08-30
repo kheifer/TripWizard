@@ -8,6 +8,7 @@ import models.GetCountries;
 import org.sql2o.Sql2o;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
+
 import static spark.Spark.get;
 import static spark.Spark.staticFileLocation;
 
@@ -22,22 +23,31 @@ import static spark.Spark.*;
 public class App {
 
     public static void main(String[] args) {
+
         staticFileLocation("/public");
         String connectionString = "jdbc:h2:~/tripwizard.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "", "");
         Sql2oUserPreferencesDao userPreferencesDao = new Sql2oUserPreferencesDao(sql2o);
         Sql2oCountriesDao countriesDao = new Sql2oCountriesDao(sql2o);
         Sql2oUserDao userDao = new Sql2oUserDao(sql2o);
+
+
+
+
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
+            int size = countriesDao.getAll().size();
+            if (size <= 0) {
+                countriesDao.populate("/Users/Guest/Desktop/TripWizard/src/main/resources/json");
+            }
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/homepage", (request, response) -> {
-           // Map<String, Object> model = new HashMap<>();
-            countriesDao.populate("/Users/Guest/Desktop/TripWizard/src/main/resources/json");
+
             return new ModelAndView(new HashMap<String, Object>(), "homepage.hbs");
         }, new HandlebarsTemplateEngine());
+
 
         post("/questions", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -50,6 +60,7 @@ public class App {
             return new ModelAndView(model, "questions.hbs");
         }, new HandlebarsTemplateEngine());
 
+
         post("/:userId/suggestions", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             int userId = Integer.parseInt(request.params("userId"));
@@ -60,13 +71,15 @@ public class App {
             int outdoorsy = Integer.parseInt(request.queryParams("outdoorsy"));
             int arts = Integer.parseInt(request.queryParams("arts"));
 
-            userPreferencesDao.add(new UserPreferences(maxBudget, season, "112.232", "-12.324", nightlife, outdoorsy, arts, userId));
+            UserPreferences newPref = new UserPreferences(maxBudget, season, "45.5266975", "-122.6880503", nightlife, outdoorsy, arts, userId);
+            userPreferencesDao.add(newPref);
+            int id = newPref.getId();
 
-            List<Country> list1 = userPreferencesDao.arts(userId);
-            List<Country> list2 = userPreferencesDao.nightlife(userId);
-            List<Country> list3 = userPreferencesDao.outdoorsy(userId);
-            List<Country> list4 = userPreferencesDao.season(userId);
-            List<Country> list5 = userPreferencesDao.budget(userId);
+            List<Country> list1 = userPreferencesDao.arts(id);
+            List<Country> list2 = userPreferencesDao.nightlife(id);
+            List<Country> list3 = userPreferencesDao.outdoorsy(id);
+            List<Country> list4 = userPreferencesDao.season(id);
+            List<Country> list5 = userPreferencesDao.budget(id);
             List<Country> results = GetCountries.getResults(list1, list2, list3, list4, list5);
 
             model.put("matches", results);
@@ -74,10 +87,6 @@ public class App {
         }, new HandlebarsTemplateEngine());
     }
 }
-
-
-
-
 
 
 //    Country c1 = new Country("Russia");

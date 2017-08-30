@@ -8,6 +8,7 @@
 }
 
 body {
+  background: #EEEBE4;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -78,7 +79,6 @@ a {
 
 /* ---- Intro ---- */
 #intro {
-  background: #EEEBE4;
   display: flex;
   justify-content: center;
   align-items: center;

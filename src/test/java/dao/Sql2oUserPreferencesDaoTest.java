@@ -27,6 +27,7 @@ public class Sql2oUserPreferencesDaoTest {
         Sql2o sql2o = new Sql2o(connectionString,"","");
         userPreferencesDao = new Sql2oUserPreferencesDao((sql2o));
         con = sql2o.open();
+        userPreferencesDao.seeder();
     }
 
     @After
@@ -80,21 +81,50 @@ public class Sql2oUserPreferencesDaoTest {
 
     @Test
     public void budget() throws Exception{
-        userPreferencesDao.seeder();
         UserPreferences userPreferences = newUserPref();
         userPreferencesDao.add(userPreferences);
         int id = userPreferences.getId();
-        System.out.println(userPreferencesDao.getAllCountries().size());
-        List<Country> countryList = userPreferencesDao.budget(1);
-        System.out.println(userPreferencesDao.getAllCountries().size());
-        System.out.println(userPreferencesDao.getAllCountries().size());
-        System.out.println(userPreferencesDao.getAllCountries().size());
+        List<Country> countryList = userPreferencesDao.budget(id);
         assertEquals(6, countryList.size());
+    }
+
+    @Test
+    public void seasonTest() throws Exception{
+        UserPreferences userPreferences = newUserPref();
+        userPreferencesDao.add(userPreferences);
+        int id = userPreferences.getId();
+        List<Country> countryList = userPreferencesDao.season(id);
+        assertEquals(1, countryList.size());
+    }
+
+    @Test
+    public void nightlifeTest() throws Exception{
+        UserPreferences userPreferences = newUserPref();
+        userPreferencesDao.add(userPreferences);
+        int id = userPreferences.getId();
+        List<Country> countryList = userPreferencesDao.nightlife(id);
+        assertEquals(5, countryList.size());
+    }
+    @Test
+    public void artsTest() throws Exception{
+        UserPreferences userPreferences = newUserPref();
+        userPreferencesDao.add(userPreferences);
+        int id = userPreferences.getId();
+        List<Country> countryList = userPreferencesDao.arts(id);
+        assertEquals(2, countryList.size());
+    }
+    @Test
+    public void outdoorsyTest() throws Exception{
+        UserPreferences userPreferences = newUserPref();
+        userPreferencesDao.add(userPreferences);
+        int id = userPreferences.getId();
+        List<Country> countryList = userPreferencesDao.outdoorsy(id);
+        assertEquals(5, countryList.size());
     }
 
     //helper method
     UserPreferences newUserPref(){
-        return new UserPreferences(200.0, "spring", "45", "45", 3, 5, 5, 1);
+        return new UserPreferences(200.0, "Spring", "45", "45", 3, 5, 5, 1);
     }
 
 }

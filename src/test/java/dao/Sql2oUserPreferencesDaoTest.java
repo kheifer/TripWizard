@@ -80,7 +80,7 @@ public class Sql2oUserPreferencesDaoTest {
     public void budget() throws Exception{
         UserPreferences userPreferences = newUserPref();
         userPreferencesDao.add(userPreferences);
-        int id = userPreferences.getId();
+        int id = userPreferences.getUserId();
         List<Country> countryList = userPreferencesDao.budget(id);
         assertEquals(6, countryList.size());
     }
@@ -89,7 +89,7 @@ public class Sql2oUserPreferencesDaoTest {
     public void seasonTest() throws Exception{
         UserPreferences userPreferences = newUserPref();
         userPreferencesDao.add(userPreferences);
-        int id = userPreferences.getId();
+        int id = userPreferences.getUserId();
         List<Country> countryList = userPreferencesDao.season(id);
         assertEquals(1, countryList.size());
     }
@@ -98,7 +98,7 @@ public class Sql2oUserPreferencesDaoTest {
     public void nightlifeTest() throws Exception{
         UserPreferences userPreferences = newUserPref();
         userPreferencesDao.add(userPreferences);
-        int id = userPreferences.getId();
+        int id = userPreferences.getUserId();
         List<Country> countryList = userPreferencesDao.nightlife(id);
         assertEquals(5, countryList.size());
     }
@@ -106,7 +106,7 @@ public class Sql2oUserPreferencesDaoTest {
     public void artsTest() throws Exception{
         UserPreferences userPreferences = newUserPref();
         userPreferencesDao.add(userPreferences);
-        int id = userPreferences.getId();
+        int id = userPreferences.getUserId();
         List<Country> countryList = userPreferencesDao.arts(id);
         assertEquals(2, countryList.size());
     }
@@ -114,9 +114,14 @@ public class Sql2oUserPreferencesDaoTest {
     public void outdoorsyTest() throws Exception{
         UserPreferences userPreferences = newUserPref();
         userPreferencesDao.add(userPreferences);
-        int id = userPreferences.getId();
+        int id = userPreferences.getUserId();
         List<Country> countryList = userPreferencesDao.outdoorsy(id);
         assertEquals(5, countryList.size());
+    }
+
+    @Test
+    public void countryFinderMethods() throws  Exception {
+
     }
 
     //helper method

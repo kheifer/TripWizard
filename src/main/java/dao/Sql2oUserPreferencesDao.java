@@ -85,10 +85,10 @@ public class Sql2oUserPreferencesDao implements UserPreferencesDao{
 
     @Override
     public List<Country> budget(int id) {
-        String query = "SELECT maxBudget FROM user_preferences WHERE id = :id";
+        String query = "SELECT maxBudget FROM user_preferences WHERE userId = :userId";
         try(Connection con = sql2o.open()){
             Double maxBudget = (Double) con.createQuery(query)
-                    .addParameter("id",id)
+                    .addParameter("userId",id)
                     .executeAndFetchFirst(Double.class);
             String budget ="SELECT * FROM countries WHERE budget BETWEEN 0 AND :maxBudget";
             return con.createQuery(budget)
@@ -108,10 +108,10 @@ public class Sql2oUserPreferencesDao implements UserPreferencesDao{
 
     @Override
     public List<Country> season(int id) {
-        String query = "SELECT season FROM user_preferences WHERE id = :id";
+        String query = "SELECT season FROM user_preferences WHERE userId = :userId";
         try(Connection con = sql2o.open()){
             String season = con.createQuery(query)
-                    .addParameter("id", id)
+                    .addParameter("userId", id)
                     .executeAndFetchFirst(String.class);
             return con.createQuery("SELECT * FROM countries WHERE season = :season")
                     .addParameter("season", season)
@@ -121,10 +121,10 @@ public class Sql2oUserPreferencesDao implements UserPreferencesDao{
 
     @Override
     public List<Country> nightlife(int id) {
-        String query = "SELECT nightlife FROM user_preferences WHERE id = :id";
+        String query = "SELECT nightlife FROM user_preferences WHERE userId = :userId";
         try (Connection con = sql2o.open()) {
             Integer nightlife =(Integer)con.createQuery(query)
-                    .addParameter("id", id)
+                    .addParameter("userId", id)
                     .executeAndFetchFirst(Integer.class);
             String search = "SELECT * FROM countries WHERE nightlife BETWEEN :nightlife - 1 AND :nightlife + 1";
             return con.createQuery(search)
@@ -135,10 +135,10 @@ public class Sql2oUserPreferencesDao implements UserPreferencesDao{
 
     @Override
     public List<Country> outdoorsy(int id) {
-        String query = "SELECT outdoorsy FROM user_preferences WHERE id = :id";
+        String query = "SELECT outdoorsy FROM user_preferences WHERE userId = :userId";
         try (Connection con = sql2o.open()) {
             Integer outdoorsy =(Integer)con.createQuery(query)
-                    .addParameter("id", id)
+                    .addParameter("userId", id)
                     .executeAndFetchFirst(Integer.class);
             String search = "SELECT * FROM countries WHERE outdoorsy BETWEEN :outdoorsy - 1 AND :outdoorsy + 1";
             return con.createQuery(search)
@@ -148,16 +148,18 @@ public class Sql2oUserPreferencesDao implements UserPreferencesDao{
 
     @Override
     public List<Country> arts(int id) {
-        String query = "SELECT arts FROM user_preferences WHERE id = :id";
+        String query = "SELECT arts FROM user_preferences WHERE userId = :userId";
         try (Connection con = sql2o.open()) {
-            Integer arts =(Integer)con.createQuery(query)
-                    .addParameter("id", id)
+            Integer arts = con.createQuery(query)
+                    .addParameter("userId", id)
                     .executeAndFetchFirst(Integer.class);
-            String search = "SELECT * FROM countries WHERE arts BETWEEN :arts - 1 AND :arts + 1";
+            String search = "SELECT * FROM countries WHERE arts BETWEEN :artsLow AND :artsHigh";
             return con.createQuery(search)
-                    .addParameter("arts", arts)
+                    .addParameter("artsLow", arts - 1)
+                    .addParameter("artsHigh", arts + 1)
                     .executeAndFetch(Country.class);
-        }    }
+        }
+    }
 
     public void seeder(){
         String first = "INSERT INTO countries (name, budget, season, latitude, longitude, nightLife, arts, outdoorsy) VALUES ('America', 200, 'Summer','40.714846', '-74.004423', 5, 5, 4)";

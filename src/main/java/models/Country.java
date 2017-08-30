@@ -25,6 +25,17 @@ public class Country {
         this.outdoorsy = outdoorsy;
     }
 
+    public Country(String name) {
+        this.name = name;
+        this.latitude = "";
+        this.longitude = "";
+        this.budget = 0;
+        this.season = "";
+        this.arts = 0;
+        this.nightlife = 0;
+        this.outdoorsy = 0;
+    }
+
     // getters
 
     public int getId() {

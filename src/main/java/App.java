@@ -4,9 +4,14 @@ import dao.Sql2oUserPreferencesDao;
 import models.Country;
 import models.User;
 import models.UserPreferences;
+import models.GetCountries;
 import org.sql2o.Sql2o;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
+import static spark.Spark.get;
+import static spark.Spark.staticFileLocation;
+
+import java.util.ArrayList;
 
 import java.util.HashMap;
 import java.util.List;
@@ -30,6 +35,7 @@ public class App {
 
         get("/homepage", (request, response) -> {
            // Map<String, Object> model = new HashMap<>();
+            countriesDao.populate("/Users/Guest/Desktop/TripWizard/src/main/resources/json");
             return new ModelAndView(new HashMap<String, Object>(), "homepage.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -39,7 +45,7 @@ public class App {
             int duration = Integer.parseInt(request.queryParams("duration"));
             User newUser = new User(name, duration);
             userDao.add(newUser);
-            model.put("userId", newUser.getId());
+            model.put("id", newUser.getId());
             model.put("userName", newUser.getName());
             return new ModelAndView(model, "questions.hbs");
         }, new HandlebarsTemplateEngine());
@@ -47,18 +53,76 @@ public class App {
         post("/:userId/suggestions", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             int userId = Integer.parseInt(request.params("userId"));
+
             Double maxBudget = Double.parseDouble(request.queryParams("maxBudget"));
             String season = request.queryParams("season");
-//            String latitude = request.queryParams("latitude");
-//            String longtitude = request.queryParams("longitude");
             int nightlife = Integer.parseInt(request.queryParams("nightlife"));
             int outdoorsy = Integer.parseInt(request.queryParams("outdoorsy"));
             int arts = Integer.parseInt(request.queryParams("arts"));
+
             userPreferencesDao.add(new UserPreferences(maxBudget, season, "112.232", "-12.324", nightlife, outdoorsy, arts, userId));
-//            List<Country> matches = userPreferencesDao.findMatches(userId);
-//            model.put("matches", matches);
+
+            List<Country> list1 = userPreferencesDao.arts(userId);
+            List<Country> list2 = userPreferencesDao.nightlife(userId);
+            List<Country> list3 = userPreferencesDao.outdoorsy(userId);
+            List<Country> list4 = userPreferencesDao.season(userId);
+            List<Country> list5 = userPreferencesDao.budget(userId);
+            List<Country> results = GetCountries.getResults(list1, list2, list3, list4, list5);
+
+            model.put("matches", results);
             return new ModelAndView(model, "matchingCountries.hbs");
         }, new HandlebarsTemplateEngine());
-
     }
 }
+
+
+
+
+
+
+//    Country c1 = new Country("Russia");
+//    Country c2 = new Country("Canada");
+//    Country c3 = new Country("USA");
+//    Country c4 = new Country("Germany");
+//    Country c5 = new Country("Italy");
+//    Country c6 = new Country("Kenya");
+//
+//    List<Country> one = new ArrayList<>();
+//    List<Country> two = new ArrayList<>();
+//    List<Country> three = new ArrayList<>();
+//    List<Country> four = new ArrayList<>();
+//    List<Country> five = new ArrayList<>();
+//
+//
+//        one.add(c1);
+////        one.add(c2);
+////        one.add(c3);
+////        one.add(c6);
+//
+////        two.add(c3);
+//                two.add(c3);
+////        two.add(c4);
+////        two.add(c6);
+//
+//
+//                three.add(c5);
+////        three.add(c2);
+////        three.add(c3);
+////        three.add(c6);
+//
+//                four.add(c2);
+////        four.add(c4);
+////        four.add(c5);
+////        four.add(c6);
+//
+//                five.add(c4);
+////        five.add(c4);
+////        five.add(c5);
+////        five.add(c6);
+//
+//
+//
+//                System.out.println(GetCountries.getResults(one, two, three, four, five));
+////List<Country> finalList =   GetCountries.getResults(one, two);
+//
+////System.out.println(finalList);

@@ -1,0 +1,15 @@
+{{#partial "content"}}
+    <div class="container">
+        {{#if matches}}
+            {{#each matches}}
+                <h3>{{name}}</h3>
+                <h3>{{nightlife}}</h3>
+            {{/each}}
+        {{else}}
+          <p>oops</p>
+        {{/if}}
+    </div>
+
+{{/partial}}
+
+{{> layout2.hbs}}

@@ -49,12 +49,12 @@ public class App {
             int userId = Integer.parseInt(request.params("userId"));
             Double maxBudget = Double.parseDouble(request.queryParams("maxBudget"));
             String season = request.queryParams("season");
-            String latitude = request.queryParams("latitude");
-            String longtitude = request.queryParams("longitude");
+//            String latitude = request.queryParams("latitude");
+//            String longtitude = request.queryParams("longitude");
             int nightlife = Integer.parseInt(request.queryParams("nightlife"));
             int outdoorsy = Integer.parseInt(request.queryParams("outdoorsy"));
             int arts = Integer.parseInt(request.queryParams("arts"));
-            userPreferencesDao.add(new UserPreferences(maxBudget, season, latitude, longtitude, nightlife, outdoorsy, arts, userId));
+            userPreferencesDao.add(new UserPreferences(maxBudget, season, "112.232", "-12.324", nightlife, outdoorsy, arts, userId));
 //            List<Country> matches = userPreferencesDao.findMatches(userId);
 //            model.put("matches", matches);
             return new ModelAndView(model, "matchingCountries.hbs");

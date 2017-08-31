@@ -31,9 +31,6 @@ public class App {
         Sql2oCountriesDao countriesDao = new Sql2oCountriesDao(sql2o);
         Sql2oUserDao userDao = new Sql2oUserDao(sql2o);
 
-
-
-
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             int size = countriesDao.getAll().size();
@@ -85,6 +82,15 @@ public class App {
             model.put("matches", results);
             return new ModelAndView(model, "matchingCountries.hbs");
         }, new HandlebarsTemplateEngine());
+
+
+        get("/:userId/planning", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "planning.hbs");
+
+        }, new HandlebarsTemplateEngine());
+
+
         //post: run a find function on the input
         post("/search", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -92,6 +98,7 @@ public class App {
             Country newCountry = countriesDao.findByname(search1);
             model.put("country", newCountry);
             return new ModelAndView(model, "search.hbs");
+
         }, new HandlebarsTemplateEngine());
         //
         get("/random", (request, response) -> {
@@ -102,51 +109,3 @@ public class App {
         }, new HandlebarsTemplateEngine());
     }
 }
-
-
-//    Country c1 = new Country("Russia");
-//    Country c2 = new Country("Canada");
-//    Country c3 = new Country("USA");
-//    Country c4 = new Country("Germany");
-//    Country c5 = new Country("Italy");
-//    Country c6 = new Country("Kenya");
-//
-//    List<Country> one = new ArrayList<>();
-//    List<Country> two = new ArrayList<>();
-//    List<Country> three = new ArrayList<>();
-//    List<Country> four = new ArrayList<>();
-//    List<Country> five = new ArrayList<>();
-//
-//
-//        one.add(c1);
-////        one.add(c2);
-////        one.add(c3);
-////        one.add(c6);
-//
-////        two.add(c3);
-//                two.add(c3);
-////        two.add(c4);
-////        two.add(c6);
-//
-//
-//                three.add(c5);
-////        three.add(c2);
-////        three.add(c3);
-////        three.add(c6);
-//
-//                four.add(c2);
-////        four.add(c4);
-////        four.add(c5);
-////        four.add(c6);
-//
-//                five.add(c4);
-////        five.add(c4);
-////        five.add(c5);
-////        five.add(c6);
-//
-//
-//
-//                System.out.println(GetCountries.getResults(one, two, three, four, five));
-////List<Country> finalList =   GetCountries.getResults(one, two);
-//
-////System.out.println(finalList);

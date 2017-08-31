@@ -1,0 +1,192 @@
+[
+  {
+    "name": "America",
+    "budget": 200,
+    "season": "Summer",
+    "latitude": "40.714846",
+    "longitude": "-74.004423",
+    "nightlife": 5,
+    "arts": 5,
+    "outdoorsy": 4
+  },
+  {
+    "name": "Belarus",
+    "budget": 50,
+    "season": "Spring",
+    "latitude": "53.912691",
+    "longitude": "27.563156",
+    "nightlife": 4,
+    "arts": 1,
+    "outdoorsy": 4
+  },
+  {
+    "name": "Nepal",
+    "budget": 25,
+    "season": "Summer",
+    "latitude": "27.717245",
+    "longitude": "85.32396",
+    "nightlife": 1,
+    "arts": 1,
+    "outdoorsy": 5
+  },
+  {
+    "name": "Australia",
+    "budget": 250,
+    "season": "Fall",
+    "latitude": "-33.86882",
+    "longitude": "151.209296",
+    "nightlife": 4,
+    "arts": 3,
+    "outdoorsy": 2
+  },
+  {
+    "name": "Italy",
+    "budget": 130,
+    "season": "Fall",
+    "latitude": "41.902783",
+    "longitude": "12.496366",
+    "nightlife": 4,
+    "arts": 5,
+    "outdoorsy": 4
+  },
+  {
+    "name": "Ireland",
+    "budget": 150,
+    "season": "Summer",
+    "latitude": "53.349805",
+    "longitude": "-6.26031",
+    "nightlife": 3,
+    "arts": 3,
+    "outdoorsy": 2
+  },
+  {
+    "name": "Canada",
+    "budget": 180,
+    "season": "Summer",
+    "latitude": "43.653226",
+    "longitude": "-79.383184",
+    "nightlife": 3,
+    "arts": 3,
+    "outdoorsy": 5
+  },
+  {
+    "name": "Norway",
+    "budget": 260,
+    "season": "Fall",
+    "latitude": "59.913869",
+    "longitude": "10.752245",
+    "nightlife": 3,
+    "arts": 3,
+    "outdoorsy": 5
+  },
+  {
+    "name": "France",
+    "budget": 180,
+    "season": "Summer",
+    "latitude": "48.856614",
+    "longitude": "2.352222",
+    "nightlife": 4,
+    "arts": 5,
+    "outdoorsy": 2
+  },
+  {
+    "name": "Slovenia",
+    "budget": 50,
+    "season": "Summer",
+    "latitude": "46.056947",
+    "longitude": "14.505751",
+    "nightlife": 5,
+    "arts": 3,
+    "outdoorsy": 1
+  },
+  {
+    "name": "Morocco",
+    "budget": 175,
+    "season": "Winter",
+    "latitude": "33.97159",
+    "longitude": "-6.849813",
+    "nightlife": 2,
+    "arts": 4,
+    "outdoorsy": 5
+  },
+  {
+    "name": "Mongolia",
+    "budget": 80,
+    "season": "Summer",
+    "latitude": "47.886399",
+    "longitude": "106.905744",
+    "nightlife": 1,
+    "arts": 3,
+    "outdoorsy": 5
+  },
+  {
+    "name": "Zimbabwe",
+    "budget": 120,
+    "season": "Spring",
+    "latitude": "-17.825166",
+    "longitude": "31.03351",
+    "nightlife": 2,
+    "arts": 3,
+    "outdoorsy": 5
+  },
+  {
+    "name": "Turkey",
+    "budget": 130,
+    "season": "Summer",
+    "latitude": "41.008238",
+    "longitude": "28.978359",
+    "nightlife": 3,
+    "arts": 1,
+    "outdoorsy": 1
+  },
+  {
+    "name": "North Korea",
+    "budget": 50,
+    "season": "Spring",
+    "latitude": "40.339852",
+    "longitude": "127.510093",
+    "nightlife": 1,
+    "arts": 1,
+    "outdoorsy": 1
+  },
+  {
+    "name": "Kenya",
+    "budget": 30,
+    "season": "Fall",
+    "latitude": "-1.292066",
+    "longitude": "36.821946",
+    "nightlife": 1,
+    "arts": 3,
+    "outdoorsy": 5
+  },
+  {
+    "name": "Venezuela",
+    "budget": 60,
+    "season": "Fall",
+    "latitude": "10.480594",
+    "longitude": "-66.903606",
+    "nightlife": 3,
+    "arts": 2,
+    "outdoorsy": 4
+  },
+  {
+    "name": "Brazil",
+    "budget": 110,
+    "season": "Spring",
+    "latitude": "-14.235004",
+    "longitude": "-51.92528",
+    "nightlife": 5,
+    "arts": 4,
+    "outdoorsy": 4
+  },
+  {
+    "name": "Russia",
+    "budget": 100,
+    "season": "Summer",
+    "latitude": "55.755826",
+    "longitude": "37.6173",
+    "nightlife": 4,
+    "arts": 4,
+    "outdoorsy": 2
+  }
+]

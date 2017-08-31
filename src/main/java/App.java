@@ -84,8 +84,11 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
-        get("/:userId/planning", (request, response) -> {
+        get("/:id/planning", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
+            int id = Integer.parseInt(request.params("id"));
+            Country newCountry = countriesDao.findById(id);
+            model.put("country", newCountry);
             return new ModelAndView(model, "planning.hbs");
 
         }, new HandlebarsTemplateEngine());

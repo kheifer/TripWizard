@@ -4,7 +4,9 @@
             {{#each matches}}
                 <div class="container">
                     <h3>{{name}}</h3>
-                    <button class="btn btn-warning">Details</button>
+
+                    <h3>{{nightlife}}</h3>
+                    <input type="submit" class="btn btn-warning" value="Start booking a trip" onclick="window.location='/{{id}}/planning';" />
                     <!--<p class="latitude hideIt">{{latitude}}</p>-->
                     <!--<p class ="longitude hideIt">{{longitude}}</p>-->
                     <div id ="map-canvas-{{id}}" style="width:304px;height:228px;" >
@@ -34,6 +36,9 @@
 
 
                                 </script>
+
+                    <div data-skyscanner-widget="SearchWidget" data-origin-geo-lookup="true"></div>
+                    <script src="https://widgets.skyscanner.net/widget-server/js/loader.js" async></script>
                 </div>
             {{/each}}
         {{else}}

@@ -1,0 +1,21 @@
+{{#partial "content"}}
+<div class="container">
+    <h4>Book a flight</h4>
+    <div class = "row">
+        <div class="col-md-5">
+        <div class="container-widget">
+            <div data-skyscanner-widget="SearchWidget" data-origin-geo-lookup="true" data-currency="USD"></div>
+            <script src="https://widgets.skyscanner.net/widget-server/js/loader.js" async></script>
+         </div>
+    </div>
+        <div class="col-md-5">
+            <div class="googleCalendar">
+                <iframe src="https://calendar.google.com/calendar/embed?title=Monthly%20calendar&amp;showCalendars=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=8d3fc8l9g04n7r9im45fsn08ak%40group.calendar.google.com&amp;color=%238D6F47&amp;ctz=America%2FNew_York" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+            </div>
+        </div>
+</div>
+</div>
+
+{{/partial}}
+
+{{> layout2.hbs}}

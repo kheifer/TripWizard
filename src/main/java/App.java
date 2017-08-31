@@ -84,10 +84,11 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
-        get("/:countryName/planning", (request, response) -> {
+        get("/:id/planning", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            String countyName = request.params("countryName");
-            model.put("name", countyName);
+            int id = Integer.parseInt(request.params("id"));
+            Country newCountry = countriesDao.findById(id);
+            model.put("country", newCountry);
             return new ModelAndView(model, "planning.hbs");
 
         }, new HandlebarsTemplateEngine());
@@ -101,6 +102,13 @@ public class App {
             model.put("country", newCountry);
             return new ModelAndView(model, "search.hbs");
 
+        }, new HandlebarsTemplateEngine());
+        //
+        get("/random", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            Country newCountry = countriesDao.pickARandomCountry();
+            model.put("country", newCountry);
+            return new ModelAndView(model, "search.hbs");
         }, new HandlebarsTemplateEngine());
     }
 }

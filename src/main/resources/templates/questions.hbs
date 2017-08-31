@@ -1,69 +1,153 @@
 {{#partial "content"}}
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#test-modal">Show Modal</button>
     <div class="container questions">
-    <form action="/{{id}}/suggestions" method="POST">
+        <form action="/{{id}}/suggestions" method="POST">
+    <div class="modal fade" id="test-modal" data-modal-index="1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="maxBudget">What is your budget per day?</label>
+                        <input id="maxBudget" type="number" class="form-control" name="maxBudget" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" data-toggle="modal" data-target="#test-modal-2">Next Question</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+    <div class="modal fade" id="test-modal-2" data-modal-index="2">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">What season do you want to travel?</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="radio">
+                            <label><input type="radio" name="season" value="Summer" required>Summer</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="season" value="Fall">Fall</label>
+                        </div>
+                        <div class="radio disabled">
+                            <label><input type="radio" name="season" value="Winter">Winter</label>
+                        </div>
+                        <div class="radio disabled">
+                            <label><input type="radio" name="season" value="Spring">Spring</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#test-modal-1">Previous Question</button>
+                    <button class="btn btn-default" data-toggle="modal" data-target="#test-modal-3">Next Question</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div class="modal fade" id="test-modal-3">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Modal title 3</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <h3>How important is nightlife to you?</h3>
+                        <input type="range" name="nightlife1" min="1" max="5" step="1">
+                        <div class="radio">
+                            <label><input type="radio" name="nightlife" value="1" required>Not at all</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="nightlife" value="3">Somewhat</label>
+                        </div>
+                        <div class="radio disabled">
+                            <label><input type="radio" name="nightlife" value="5">Most important</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#test-modal-2">Previous Question</button>
+                    <button class="btn btn-default" data-toggle="modal" data-target="#test-modal-4">Next Question</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+    <div class="modal fade" id="test-modal-4">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Modal title 4</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <h3>How important are the arts to you?</h3>
+                        <input type="range" name="arts1" min="1" max="5" step="1">
+                        <div class="radio">
+                            <label><input type="radio" name="arts" value="1" required>Not at all</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="arts" value="3">Somewhat</label>
+                        </div>
+                        <div class="radio disabled">
+                            <label><input type="radio" name="arts" value="5">Most important</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#test-modal-3">Previous Question</button>
+                    <button class="btn btn-default" data-toggle="modal" data-target="#test-modal-5">Next Question</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+        <div class="modal fade" id="test-modal-5">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title">How important are the outdoors to you</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="range" name="outdoorsy1" min="1" max="5" step="1">
+                            <output for="outdoorsy1" onforminput="value = outdoorsy1.valueAsNumber;"></output>
+                            <div class="radio">
+                                <label><input type="radio" name="outdoorsy" value="1" required>Not at all</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="outdoorsy" value="3">Somewhat</label>
+                            </div>
+                            <div class="radio disabled">
+                                <label><input type="radio" name="outdoorsy" value="5">Most important</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#test-modal-3">Previous Question</button>
+                        <button class="btn btn-default" type="submit" data-toggle="modal" data-target="#test-modal-">Submit</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
         <!--<input id="ex1" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="3"/>-->
         <!--<span id="ex1CurrentSliderValLabel">Importance: <span id="ex1SliderVal">3</span></span>-->
-        <div class="form-group">
-            <label for="maxBudget">What is your budget per day?</label>
-            <input id="maxBudget" type="number" class="form-control" name="maxBudget" required>
-        </div>
-
-        <div class="form-group">
-            <h3>What season do you want to travel?</h3>
-            <div class="radio">
-                <label><input type="radio" name="season" value="Summer" required>Summer</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="season" value="Fall">Fall</label>
-            </div>
-            <div class="radio disabled">
-                <label><input type="radio" name="season" value="Winter">Winter</label>
-            </div>
-            <div class="radio disabled">
-                <label><input type="radio" name="season" value="Spring">Spring</label>
-            </div>
-        </div>
-        <div class="form-group">
-            <h3>How important is nightlife to you?</h3>
-            <input type="range" name="nightlife1" min="1" max="5" step="1">
-            <div class="radio">
-                <label><input type="radio" name="nightlife" value="1" required>Not at all</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="nightlife" value="3">Somewhat</label>
-            </div>
-            <div class="radio disabled">
-                <label><input type="radio" name="nightlife" value="5">Most important</label>
-            </div>
-        </div>
-        <div class="form-group">
-            <h3>How important are the arts to you?</h3>
-            <input type="range" name="arts1" min="1" max="5" step="1">
-            <div class="radio">
-                <label><input type="radio" name="arts" value="1" required>Not at all</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="arts" value="3">Somewhat</label>
-            </div>
-            <div class="radio disabled">
-                <label><input type="radio" name="arts" value="5">Most important</label>
-            </div>
-        </div>
-        <div class="form-group">
-            <h3>How important are the outdoors to you?</h3>
-            <input type="range" name="outdoorsy1" min="1" max="5" step="1">
-            <div class="radio">
-                <label><input type="radio" name="outdoorsy" value="1" required>Not at all</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="outdoorsy" value="3">Somewhat</label>
-            </div>
-            <div class="radio disabled">
-                <label><input type="radio" name="outdoorsy" value="5">Most important</label>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-info">Continue</button>
-    </form>
+        </form>
+    </div>
+    <div class="embedIt">
+        <embed src="music/song.mp3" autostart="true">
     </div>
 {{/partial}}
 

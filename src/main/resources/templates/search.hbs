@@ -1,0 +1,43 @@
+{{#partial "content"}}
+
+    {{#if country}}
+        <div class="container">
+            <h3>{{country.name}}</h3>
+            <button class="btn btn-warning">Details</button>
+            <!--<p class="latitude hideIt">{{country.latitude}}</p>-->
+            <!--<p class ="longitude hideIt">{{country.longitude}}</p>-->
+            <div id ="map-canvas-{{country.id}}" style="width:304px;height:228px;" >
+                <div class="map-inner">
+                    {{country.name}}
+                </div>
+            </div>
+            <script>
+                                function initialize(latitude, longitude, homies) {
+                                    var myLatLng = new google.maps.LatLng(latitude,longitude);
+                                    var map = new google.maps.Map(document.getElementById("map-canvas-" + homies),
+                                    {
+                                        zoom: 10,
+                                        center: myLatLng,
+                                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                                    });
+
+                                    var marker = new google.maps.Marker(
+                                    {
+                                        position: myLatLng,
+                                        map: map,
+                                        animation: google.maps.Animation.DROP,
+                                    });
+                                };
+                                initialize({{country.latitude}}, {{country.longitude}}, {{country.id}});
+
+
+
+                                </script>
+        </div>
+    {{else}}
+        <p>No Places to display!</p>
+    {{/if}}
+
+{{/partial}}
+
+{{> layout2.hbs}}

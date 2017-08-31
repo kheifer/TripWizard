@@ -88,6 +88,9 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "planning.hbs");
 
+        }, new HandlebarsTemplateEngine());
+
+
         //post: run a find function on the input
         post("/search", (request, response) -> {
             Map<String, Object> model = new HashMap<>();

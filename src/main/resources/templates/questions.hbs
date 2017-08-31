@@ -1,8 +1,6 @@
 {{#partial "content"}}
+    <div class="container questions">
     <form action="/{{id}}/suggestions" method="POST">
-
-
-
         <!--<input id="ex1" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="3"/>-->
         <!--<span id="ex1CurrentSliderValLabel">Importance: <span id="ex1SliderVal">3</span></span>-->
         <div class="form-group">
@@ -27,6 +25,7 @@
         </div>
         <div class="form-group">
             <h3>How important is nightlife to you?</h3>
+            <input type="range" name="nightlife1" min="1" max="5" step="1">
             <div class="radio">
                 <label><input type="radio" name="nightlife" value="1" required>Not at all</label>
             </div>
@@ -39,6 +38,7 @@
         </div>
         <div class="form-group">
             <h3>How important are the arts to you?</h3>
+            <input type="range" name="arts1" min="1" max="5" step="1">
             <div class="radio">
                 <label><input type="radio" name="arts" value="1" required>Not at all</label>
             </div>
@@ -51,6 +51,7 @@
         </div>
         <div class="form-group">
             <h3>How important are the outdoors to you?</h3>
+            <input type="range" name="outdoorsy1" min="1" max="5" step="1">
             <div class="radio">
                 <label><input type="radio" name="outdoorsy" value="1" required>Not at all</label>
             </div>
@@ -61,20 +62,9 @@
                 <label><input type="radio" name="outdoorsy" value="5">Most important</label>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
         <button type="submit" class="btn btn-info">Continue</button>
     </form>
-
+    </div>
 {{/partial}}
 
 {{> layout2.hbs}}

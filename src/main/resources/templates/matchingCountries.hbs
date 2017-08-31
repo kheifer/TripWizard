@@ -4,18 +4,18 @@
             {{#each matches}}
                 <div class="container">
                     <h3>{{name}}</h3>
+
                     <h3>{{nightlife}}</h3>
                     <input type="submit" class="btn btn-warning" value="Start booking a trip" onclick="window.location='/{{id}}/planning';" />
                     <!--<p class="latitude hideIt">{{latitude}}</p>-->
                     <!--<p class ="longitude hideIt">{{longitude}}</p>-->
                     <div id ="map-canvas-{{id}}" style="width:304px;height:228px;" >
+                        <div class="map-inner">
+                            {{name}}
+                        </div>
                     </div>
                     <script>
                                 function initialize(latitude, longitude, homies) {
-
-                                    alert(latitude);
-
-
                                     var myLatLng = new google.maps.LatLng(latitude,longitude);
                                     var map = new google.maps.Map(document.getElementById("map-canvas-" + homies),
                                     {
@@ -28,6 +28,7 @@
                                     {
                                         position: myLatLng,
                                         map: map,
+                                        animation: google.maps.Animation.DROP,
                                     });
                                 };
                                 initialize({{latitude}}, {{longitude}}, {{id}});

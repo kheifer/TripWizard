@@ -84,8 +84,10 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
-        get("/:userId/planning", (request, response) -> {
+        get("/:countryName/planning", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
+            String countyName = request.params("countryName");
+            model.put("name", countyName);
             return new ModelAndView(model, "planning.hbs");
 
         }, new HandlebarsTemplateEngine());

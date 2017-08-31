@@ -38,7 +38,7 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             int size = countriesDao.getAll().size();
             if (size <= 0) {
-                countriesDao.populate("/Users/Guest/Desktop/TripWizard/src/main/resources/json");
+                countriesDao.populate("/Users/katsiarynamashokha/Desktop/TripWizard/src/main/resources/json");
             }
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
@@ -84,6 +84,12 @@ public class App {
 
             model.put("matches", results);
             return new ModelAndView(model, "matchingCountries.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+        get("/:userId/planning", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "planning.hbs");
         }, new HandlebarsTemplateEngine());
     }
 }

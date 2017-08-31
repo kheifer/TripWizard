@@ -81,11 +81,10 @@ public class App {
             return new ModelAndView(model, "matchingCountries.hbs");
         }, new HandlebarsTemplateEngine());
 
-        get("/:id/planning", (request, response) -> {
+        get("/:name/planning", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            int id = Integer.parseInt(request.params("id"));
-            Country newCountry = countriesDao.findById(id);
-            model.put("country", newCountry);
+            String id = request.params("name");
+            model.put("country", id);
             return new ModelAndView(model, "planning.hbs");
 
         }, new HandlebarsTemplateEngine());

@@ -1,5 +1,5 @@
 {{#partial "content"}}
-    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#test-modal">Show Modal</button>
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#test-modal">Let's find out your destination!</button>
     <div class="container questions">
         <form action="/{{id}}/suggestions" method="POST">
     <div class="modal fade" id="test-modal" data-modal-index="1">
@@ -7,15 +7,15 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">What is your budget per day?</h4>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="maxBudget">What is your budget per day?</label>
                         <input id="maxBudget" type="number" class="form-control" name="maxBudget" required>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-default" data-toggle="modal" data-target="#test-modal-2">Next Question</button>
+                    <button type= "button" class="btn btn-default" data-toggle="modal" data-target="#test-modal-2">Next Question</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -47,7 +47,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#test-modal-1">Previous Question</button>
-                    <button class="btn btn-default" data-toggle="modal" data-target="#test-modal-3">Next Question</button>
+                    <button class="btn btn-default" type="button" data-toggle="modal" data-target="#test-modal-3">Next Question</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -58,17 +58,16 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title">Modal title 3</h4>
+                    <h4 class="modal-title">How important is nightlife to you?</h4>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <h3>How important is nightlife to you?</h3>
                         <input type="range" name="nightlife" min="1" max="5" step="1" required>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#test-modal-2">Previous Question</button>
-                    <button class="btn btn-default" data-toggle="modal" data-target="#test-modal-4">Next Question</button>
+                    <button class="btn btn-default" type="button" data-toggle="modal" data-target="#test-modal-4">Next Question</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -80,17 +79,16 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title">Modal title 4</h4>
+                    <h4 class="modal-title">How important are the arts to you?</h4>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <h3>How important are the arts to you?</h3>
                         <input type="range" name="arts" min="1" max="5" step="1" required>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#test-modal-3">Previous Question</button>
-                    <button class="btn btn-default" data-toggle="modal" data-target="#test-modal-5">Next Question</button>
+                    <button class="btn btn-default" type="button" data-toggle="modal" data-target="#test-modal-5">Next Question</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -115,12 +113,10 @@
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
-        <!--<input id="ex1" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="3"/>-->
-        <!--<span id="ex1CurrentSliderValLabel">Importance: <span id="ex1SliderVal">3</span></span>-->
         </form>
     </div>
     <div class="embedIt">
-        <embed src="music/song.mp3" autostart="true">
+        <embed src="music/song2.mp3" autostart="true">
     </div>
 {{/partial}}
 

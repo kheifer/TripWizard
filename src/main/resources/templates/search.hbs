@@ -1,10 +1,10 @@
 {{#partial "content"}}
 
     {{#if country}}
-        <div class="container">
+        <div class="container matches">
             <h3>{{country.name}}</h3>
-            <button class="btn btn-warning">Details</button>
-            <div id ="map-canvas-{{country.id}}" style="width:304px;height:228px;" >
+            <!--<button class="btn btn-warning">Details</button>-->
+            <div id ="map-canvas-{{country.id}}" class="mapz" style="width:600px;height:500px;" >
                 <div class="map-inner">
                     {{country.name}}
                 </div>

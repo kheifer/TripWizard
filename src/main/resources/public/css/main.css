@@ -6,9 +6,20 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+html {
+  position: relative;
+  min-height: 100%;
+}
 
 body {
-  background: #EEEBE4;
+  background: url("/images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: black;
+}
+
+body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -16,25 +27,42 @@ body {
   color: #3a3a3a;
 }
 
+.jumbotron {
+    text-align: center;
+    background: inherit;
+    color: white;
+}
+
 .embedIt {
    visibility:hidden;
 }
 
+.matches {
+    text-align: center;
+}
+
+.mapz {
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
 img {
   max-width: 100%;
   height: auto;
   vertical-align: bottom;
 }
 
+.homies {
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+h3 {
+    font-size: 45px;
+}
+
 a {
   text-decoration: none;
   color: #b79d55;
-}
-
-.container {
-  margin: 0 auto;
-  width: 90%;
-  max-width: 1170px;
 }
 
 .button {
@@ -479,9 +507,13 @@ output:after {
   text-align: center;
 }
 
-.container-widget {
-  height: 300px;
+
+.video {
+ margin-top: 50px;
 }
 
-
+.skyscanner {
+text-align: center;
+margin-top: 300px;
+}
 

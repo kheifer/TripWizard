@@ -2,38 +2,35 @@
     <div class="container">
         {{#if matches}}
             {{#each matches}}
-                <div class="container">
-                    <h3>{{name}}</h3>
-
-                    <h3>{{nightlife}}</h3>
-                    <input type="submit" class="btn btn-warning" value="Start booking a trip" onclick="window.location='/{{id}}/planning';" />
-                    <!--<p class="latitude hideIt">{{latitude}}</p>-->
-                    <!--<p class ="longitude hideIt">{{longitude}}</p>-->
-                    <div id ="map-canvas-{{id}}" style="width:304px;height:228px;" >
-                        <div class="map-inner">
-                            {{name}}
+                <div class="container row matches">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <h3>{{name}}</h3>
+                        <input type="submit" class="btn btn-warning" value="Start booking a trip" onclick="window.location='/{{name}}/planning';">
+                        <div id ="map-canvas-{{id}}" class="mapz" style="width:600px;height:500px;" >
                         </div>
+                        <script>
+                                    function initialize(latitude, longitude, homies) {
+                                        var myLatLng = new google.maps.LatLng(latitude,longitude);
+                                        var map = new google.maps.Map(document.getElementById("map-canvas-" + homies),
+                                        {
+                                            zoom: 10,
+                                            center: myLatLng,
+                                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                                        });
+
+                                        var marker = new google.maps.Marker(
+                                        {
+                                            position: myLatLng,
+                                            map: map,
+                                            animation: google.maps.Animation.DROP,
+                                        });
+                                    };
+                                    initialize({{latitude}}, {{longitude}}, {{id}});
+
+                                    </script>
                     </div>
-                    <script>
-                                function initialize(latitude, longitude, homies) {
-                                    var myLatLng = new google.maps.LatLng(latitude,longitude);
-                                    var map = new google.maps.Map(document.getElementById("map-canvas-" + homies),
-                                    {
-                                        zoom: 10,
-                                        center: myLatLng,
-                                        mapTypeId: google.maps.MapTypeId.ROADMAP
-                                    });
-
-                                    var marker = new google.maps.Marker(
-                                    {
-                                        position: myLatLng,
-                                        map: map,
-                                        animation: google.maps.Animation.DROP,
-                                    });
-                                };
-                                initialize({{latitude}}, {{longitude}}, {{id}});
-
-                                </script>
+                    <div class="col-md-2"></div>
                 </div>
             {{/each}}
         {{else}}

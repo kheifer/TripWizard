@@ -1,26 +1,16 @@
 {{#partial "content"}}
 
 
-    <div class="container main">
-        <div class="video">
-        <iframe src="https://player.vimeo.com/video/175777474?background=1" width="600" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-        </div>
         {{#if country}}
-            <div class="container">
-                <h4>Book a flight</h4>
-                <div class = "row">
-                    <div class="col-md-5">
-                        <div class="container-widget">
-                            <div data-skyscanner-widget="SearchWidget" data-origin-geo-lookup="true" data-destination-name="'{{country.id}}'" data-currency="USD"></div>
-                            <script src="https://widgets.skyscanner.net/widget-server/js/loader.js" async></script>
-                        </div>
-                    </div>
+            <div class="skyscanner">
+                <div class="jumbotron"><h1>Book a flight</h1></div>
+                <div class="container1 homies">
+                    <div data-skyscanner-widget="SearchWidget" data-origin-geo-lookup="true" data-destination-name="'{{country}}'" data-currency="USD"></div>
+                    <script src="https://widgets.skyscanner.net/widget-server/js/loader.js" async></script>
                 </div>
             </div>
         {{else}}
         {{/if}}
-
-    </div>
 {{/partial}}
 
-{{> layout2.hbs}}
+{{> layout2.hbs}}g

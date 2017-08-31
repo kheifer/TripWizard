@@ -45,7 +45,6 @@ public class App {
             return new ModelAndView(new HashMap<String, Object>(), "homepage.hbs");
         }, new HandlebarsTemplateEngine());
 
-
         post("/questions", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             String name = request.queryParams("name");
@@ -56,7 +55,6 @@ public class App {
             model.put("userName", newUser.getName());
             return new ModelAndView(model, "questions.hbs");
         }, new HandlebarsTemplateEngine());
-
 
         post("/:userId/suggestions", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -83,7 +81,6 @@ public class App {
             return new ModelAndView(model, "matchingCountries.hbs");
         }, new HandlebarsTemplateEngine());
 
-
         get("/:id/planning", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             int id = Integer.parseInt(request.params("id"));
@@ -92,7 +89,6 @@ public class App {
             return new ModelAndView(model, "planning.hbs");
 
         }, new HandlebarsTemplateEngine());
-
 
         //post: run a find function on the input
         post("/search", (request, response) -> {
@@ -103,7 +99,7 @@ public class App {
             return new ModelAndView(model, "search.hbs");
 
         }, new HandlebarsTemplateEngine());
-        //
+
         get("/random", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             Country newCountry = countriesDao.pickARandomCountry();

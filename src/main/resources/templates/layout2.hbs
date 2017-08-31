@@ -3,18 +3,23 @@
 <html>
 <head>
     <title>{{#block "title"}}TripWizard{{/block}}</title>
-
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
     <link rel='stylesheet' href='/css/main.css'>
     <link href="https://fonts.googleapis.com/css?family=Oswald|Quattrocento+Sans" rel="stylesheet">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4eQBzQPiZRrg-T2-ygRv_wNVLsrhCG18"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.1/bootstrap-slider.js"></script>
+    <script src="https://use.fontawesome.com/3f116dc76b.js"></script>
 </head>
 <body>
 <ul class="nav nav-tabs">
     <li role="presentation"><a href="/">Home</a></li>
+    </li>
+    <form class="search-container" >
+        <input id="search-box" type="text" class="search-box" name="search" />
+        <label for="search-box"><span class="glyphicon glyphicon-search search-icon"></span></label>
+    </form>
 </ul>
 {{/block}}
 {{#block "content"}}

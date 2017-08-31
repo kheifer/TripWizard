@@ -85,6 +85,7 @@ a {
 }
 /*--search button--*/
 .search-container{
+  border: 5px;
   padding-top: 10px;
   float: right;
 }

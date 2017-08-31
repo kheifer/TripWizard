@@ -15,5 +15,7 @@ public interface CountriesDao {
 
     Country findByname(String name);
 
+    Country pickARandomCountry();
+
 
 }

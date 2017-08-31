@@ -93,6 +93,13 @@ public class App {
             model.put("country", newCountry);
             return new ModelAndView(model, "search.hbs");
         }, new HandlebarsTemplateEngine());
+        //
+        get("/random", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            Country newCountry = countriesDao.pickARandomCountry();
+            model.put("country", newCountry);
+            return new ModelAndView(model, "search.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }
 

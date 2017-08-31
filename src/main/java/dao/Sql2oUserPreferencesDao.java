@@ -51,15 +51,15 @@ public class Sql2oUserPreferencesDao implements UserPreferencesDao{
     }
 
     @Override
-    public void update(Double maxBudget, String season, String latitude, String longitude, int nightLife, int arts, int outdoorsy, int userId, int id) {
-        String query = "UPDATE user_preferences SET (maxBudget, season, latitude, longitude, nightLife, arts, outdoorsy, userId) =(:maxBudget, :season, :latitude, :longitude, :nightLife, :arts, :outdoorsy, :userId) WHERE id = :id";
+    public void update(Double maxBudget, String season, String latitude, String longitude, int nightlife, int arts, int outdoorsy, int userId, int id) {
+        String query = "UPDATE user_preferences SET (maxBudget, season, latitude, longitude, nightlife, arts, outdoorsy, userId) =(:maxBudget, :season, :latitude, :longitude, :nightlife, :arts, :outdoorsy, :userId) WHERE id = :id";
         try(Connection con = sql2o.open()){
             con.createQuery(query)
                     .addParameter("maxBudget", maxBudget)
                     .addParameter("season", season)
                     .addParameter("latitude", latitude)
                     .addParameter("longitude", longitude)
-                    .addParameter("nightLife", nightLife)
+                    .addParameter("nightlife", nightlife)
                     .addParameter("arts", arts)
                     .addParameter("outdoorsy", outdoorsy)
                     .addParameter("userId", userId)
@@ -150,14 +150,16 @@ public class Sql2oUserPreferencesDao implements UserPreferencesDao{
     public List<Country> arts(int id) {
         String query = "SELECT arts FROM user_preferences WHERE id = :id";
         try (Connection con = sql2o.open()) {
-            Integer arts =(Integer)con.createQuery(query)
+            Integer arts = con.createQuery(query)
                     .addParameter("id", id)
                     .executeAndFetchFirst(Integer.class);
-            String search = "SELECT * FROM countries WHERE arts BETWEEN :arts - 1 AND :arts + 1";
+            String search = "SELECT * FROM countries WHERE arts BETWEEN :artsLow AND :artsHigh";
             return con.createQuery(search)
-                    .addParameter("arts", arts)
+                    .addParameter("artsLow", arts - 1)
+                    .addParameter("artsHigh", arts + 1)
                     .executeAndFetch(Country.class);
-        }    }
+        }
+    }
 
     public void seeder(){
         String first = "INSERT INTO countries (name, budget, season, latitude, longitude, nightLife, arts, outdoorsy) VALUES ('America', 200, 'Summer','40.714846', '-74.004423', 5, 5, 4)";

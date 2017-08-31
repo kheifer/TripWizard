@@ -1,0 +1,45 @@
+{{#partial "content"}}
+    <div class="container">
+        {{#if matches}}
+            {{#each matches}}
+                <div class="container row matches">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <h3>{{name}}</h3>
+                        <input type="submit" class="btn btn-warning" value="Start booking a trip" onclick="window.location='/{{name}}/planning';">
+                        <div id ="map-canvas-{{id}}" class="mapz" style="width:600px;height:500px;" >
+                        </div>
+                        <script>
+                                    function initialize(latitude, longitude, homies) {
+                                        var myLatLng = new google.maps.LatLng(latitude,longitude);
+                                        var map = new google.maps.Map(document.getElementById("map-canvas-" + homies),
+                                        {
+                                            zoom: 10,
+                                            center: myLatLng,
+                                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                                        });
+
+                                        var marker = new google.maps.Marker(
+                                        {
+                                            position: myLatLng,
+                                            map: map,
+                                            animation: google.maps.Animation.DROP,
+                                        });
+                                    };
+                                    initialize({{latitude}}, {{longitude}}, {{id}});
+
+                                    </script>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            {{/each}}
+        {{else}}
+          <p>ooooooops</p>
+
+        {{/if}}
+
+    </div>
+
+{{/partial}}
+
+{{> layout2.hbs}}

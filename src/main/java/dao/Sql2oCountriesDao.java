@@ -38,20 +38,46 @@ public class Sql2oCountriesDao implements CountriesDao {
     }
 
     @Override
-    public void deleteById(int id) {
-
-    }
-
-    @Override
     public void add(Gson countryGson) {
 
     }
 
+
+    @Override
     public List<Country> getAll() {
         String sql = "SELECT * FROM countries";
         try (Connection con = sql2o.open()) {
             return con.createQuery(sql)
                     .executeAndFetch(Country.class);
+        }
+    }
+
+    @Override
+    public Country findByname(String name) {
+        String query = "SELECT * FROM countries WHERE name = :name";
+        try(Connection con = sql2o.open()){
+            return con.createQuery(query)
+                    .addParameter("name", name)
+                    .executeAndFetchFirst(Country.class);
+        }
+    }
+
+    @Override
+    public Country findById(int id) {
+            String query = "SELECT * FROM countries WHERE id = :id";
+            try(Connection con = sql2o.open()){
+                return con.createQuery(query)
+                        .addParameter("id", id)
+                        .executeAndFetchFirst(Country.class);
+            }
+        }
+
+    @Override
+    public Country pickARandomCountry() {
+        String query = "SELECT * FROM countries ORDER BY RANDOM() LIMIT 1";
+        try(Connection con = sql2o.open()){
+            return con.createQuery(query)
+                    .executeAndFetchFirst(Country.class);
         }
     }
 }

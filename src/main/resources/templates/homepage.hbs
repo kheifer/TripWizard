@@ -1,0 +1,25 @@
+
+
+{{#partial "content"}}
+    <div class="jumbotron">
+        <h1>TripWizard</h1>
+    </div>
+    {{#if id}}
+
+    {{/if}}
+    <div class="container">
+        <form action="/questions" method="POST">
+            <div class="form-group">
+                <label for="name">Your name: </label>
+                <input id="name" class="form-control" name="name" type="text" required>
+            </div>
+            <div class="form-group">
+                <label for="duration">How many days are you looking to travel for?</label>
+                <input id="ex8" class="form-control" name="duration" type="number" required/>
+            </div>
+            <button type="submit" class="btn btn-info">Continue</button>
+        </form>
+    </div>
+  {{/partial}}
+
+{{> layout2.hbs}}

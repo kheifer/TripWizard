@@ -1,0 +1,16 @@
+{{#partial "content"}}
+
+
+        {{#if country}}
+            <div class="skyscanner">
+                <div class="jumbotron"><h1>Book a flight</h1></div>
+                <div class="container1 homies">
+                    <div data-skyscanner-widget="SearchWidget" data-origin-geo-lookup="true" data-destination-name="'{{country}}'" data-currency="USD"></div>
+                    <script src="https://widgets.skyscanner.net/widget-server/js/loader.js" async></script>
+                </div>
+            </div>
+        {{else}}
+        {{/if}}
+{{/partial}}
+
+{{> layout2.hbs}}g

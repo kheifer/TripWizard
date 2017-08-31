@@ -6,6 +6,18 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background: url("/images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: black;
+}
 
 body {
   display: flex;
@@ -15,20 +27,42 @@ body {
   color: #3a3a3a;
 }
 
+.jumbotron {
+    text-align: center;
+    background: inherit;
+    color: white;
+}
+
+.embedIt {
+   visibility:hidden;
+}
+
+.matches {
+    text-align: center;
+}
+
+.mapz {
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
 img {
   max-width: 100%;
   height: auto;
   vertical-align: bottom;
 }
 
-a {
-  text-decoration: none;
+.homies {
+    margin-left: 30%;
+    margin-right: 30%;
 }
 
-.container {
-  margin: 0 auto;
-  width: 90%;
-  max-width: 1170px;
+h3 {
+    font-size: 45px;
+}
+
+a {
+  text-decoration: none;
+  color: #b79d55;
 }
 
 .button {
@@ -42,6 +76,13 @@ a {
 }
 
 /* ---- Header ---- */
+.navigation_inner__list li .navigation_inner__list_sub__search {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  float: right;
+}
+
 #main-header {
   background: #fff;
   padding: 0.85em 0;
@@ -74,10 +115,171 @@ a {
     font-size: 0.95em;
   }
 }
+/*--search button--*/
+.search-container{
+  border: 5px;
+  padding-top: 10px;
+  float: right;
+}
+
+.search-box {
+  -webkit-transition: width 0.6s, border-radius 0.6s, background 0.6s, box-shadow 0.6s;
+  transition: width 0.6s, border-radius 0.6s, background 0.6s, box-shadow 0.6s;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  background: #ebebeb;
+}
+.search-box + label .search-icon {
+  color: black;
+}
+.search-box:hover {
+  color: white;
+  background: #c8c8c8;
+  box-shadow: 0 0 0 5px #3d4752;
+}
+.search-box:hover + label .search-icon {
+  color: white;
+}
+.search-box:focus {
+  -webkit-transition: width 0.6s cubic-bezier(0, 1.22, 0.66, 1.39), border-radius 0.6s, background 0.6s;
+  transition: width 0.6s cubic-bezier(0, 1.22, 0.66, 1.39), border-radius 0.6s, background 0.6s;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  padding-left: 15px;
+  cursor: text;
+  width: 300px;
+  border-radius: auto;
+  background: #b79d55;
+  color: white;
+}
+.search-box:focus + label .search-icon {
+  color: black;
+}
+.search-box:not(:focus) {
+  text-indent: -5000px;
+}
+
+.search-icon {
+  position: relative;
+  left: -30px;
+  color: white;
+  cursor: pointer;
+}
+/*--Questions--*/
+.questions{
+  margin: 5em auto;
+}
+.modal.in {
+  -webkit-perspective: 2000px;
+  -moz-perspective: 2000px;
+  -ms-perspective: 2000px;
+  -o-perspective: 2000px;
+  perspective: 2000px;
+}
+.modal.in .modal-dialog.aside {
+  -webkit-transform: -340px;
+  -moz-transform: -340px;
+  -ms-transform: -340px;
+  -o-transform: -340px;
+  transform: -340px;
+  -webkit-transform: scale(0.8) rotateY(45deg) translateZ(-340px);
+  -ms-transform: scale(0.8) rotateY(45deg) translateZ(-340px);
+  -o-transform: scale(0.8) rotateY(45deg) translateZ(-340px);
+  transform: scale(0.8) rotateY(45deg) translateZ(-340px);
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.modal.in .modal-dialog.aside.aside-1 {
+  -webkit-transform: calc(-300px);
+  -moz-transform: calc(-300px);
+  -ms-transform: calc(-300px);
+  -o-transform: calc(-300px);
+  transform: calc(-300px);
+  -webkit-transform: scale(0.8) rotateY(45deg) translateZ(calc(-300px));
+  -ms-transform: scale(0.8) rotateY(45deg) translateZ(calc(-300px));
+  -o-transform: scale(0.8) rotateY(45deg) translateZ(calc(-300px));
+  transform: scale(0.8) rotateY(45deg) translateZ(calc(-300px));
+}
+.modal.in .modal-dialog.aside.aside-2 {
+  -webkit-transform: calc(-260px);
+  -moz-transform: calc(-260px);
+  -ms-transform: calc(-260px);
+  -o-transform: calc(-260px);
+  transform: calc(-260px);
+  -webkit-transform: scale(0.8) rotateY(45deg) translateZ(calc(-260px));
+  -ms-transform: scale(0.8) rotateY(45deg) translateZ(calc(-260px));
+  -o-transform: scale(0.8) rotateY(45deg) translateZ(calc(-260px));
+  transform: scale(0.8) rotateY(45deg) translateZ(calc(-260px));
+}
+.modal.in .modal-dialog.aside.aside-3 {
+  -webkit-transform: calc(-220px);
+  -moz-transform: calc(-220px);
+  -ms-transform: calc(-220px);
+  -o-transform: calc(-220px);
+  transform: calc(-220px);
+  -webkit-transform: scale(0.8) rotateY(45deg) translateZ(calc(-220px));
+  -ms-transform: scale(0.8) rotateY(45deg) translateZ(calc(-220px));
+  -o-transform: scale(0.8) rotateY(45deg) translateZ(calc(-220px));
+  transform: scale(0.8) rotateY(45deg) translateZ(calc(-220px));
+}
+.modal.in .modal-dialog.aside.aside-4 {
+  -webkit-transform: calc(-180px);
+  -moz-transform: calc(-180px);
+  -ms-transform: calc(-180px);
+  -o-transform: calc(-180px);
+  transform: calc(-180px);
+  -webkit-transform: scale(0.8) rotateY(45deg) translateZ(calc(-180px));
+  -ms-transform: scale(0.8) rotateY(45deg) translateZ(calc(-180px));
+  -o-transform: scale(0.8) rotateY(45deg) translateZ(calc(-180px));
+  transform: scale(0.8) rotateY(45deg) translateZ(calc(-180px));
+}
+.modal.in .modal-dialog.aside.aside-5 {
+  -webkit-transform: calc(-140px);
+  -moz-transform: calc(-140px);
+  -ms-transform: calc(-140px);
+  -o-transform: calc(-140px);
+  transform: calc(-140px);
+  -webkit-transform: scale(0.8) rotateY(45deg) translateZ(calc(-140px));
+  -ms-transform: scale(0.8) rotateY(45deg) translateZ(calc(-140px));
+  -o-transform: scale(0.8) rotateY(45deg) translateZ(calc(-140px));
+  transform: scale(0.8) rotateY(45deg) translateZ(calc(-140px));
+}
+output {
+  position: absolute;
+  background-image: linear-gradient(#444444, #999999);
+  width: 40px;
+  height: 30px;
+  text-align: center;
+  color: white;
+  border-radius: 10px;
+  display: inline-block;
+  font: bold 15px/30px Georgia;
+  bottom: 175%;
+  left: 0;
+}
+output:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 10px solid #999999;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  margin-top: -1px;
+}
+
 
 /* ---- Intro ---- */
 #intro {
-  background: #EEEBE4;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -304,3 +506,14 @@ a {
   padding: 2em 0;
   text-align: center;
 }
+
+
+.video {
+ margin-top: 50px;
+}
+
+.skyscanner {
+text-align: center;
+margin-top: 300px;
+}
+

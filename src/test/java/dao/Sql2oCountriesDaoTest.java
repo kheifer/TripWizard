@@ -39,4 +39,14 @@ public class Sql2oCountriesDaoTest {
         List<Country> test = countryDao.getAll();
         assertEquals(19, test.get(18).getId());
     }
+    @Test
+    public void findByName()throws Exception{
+        Country newCountry = countryDao.findByname("Morocco");
+        assertEquals("Winter",newCountry.getSeason());
+    }
+    @Test
+    public void pickARandomCountry()throws Exception{
+        Country newCountry = countryDao.pickARandomCountry();
+        assertTrue(newCountry instanceof Country);
+    }
 }

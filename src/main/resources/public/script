@@ -1,0 +1,13 @@
+function onClick (event) {
+            $(this).parent().hide();
+            $(this).parent().next().show();
+            event.preventDefault();
+          };
+
+          $(".btn-info").click(onClick);
+
+          //pull info from slider
+          $("#ex1").slider();
+          $("#ex1").on("slide", function(slideEvt) {
+          	$("#ex1SliderVal").text(slideEvt.value);
+          });

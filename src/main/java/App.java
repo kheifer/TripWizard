@@ -85,6 +85,14 @@ public class App {
             model.put("matches", results);
             return new ModelAndView(model, "matchingCountries.hbs");
         }, new HandlebarsTemplateEngine());
+        //post: run a find function on the input
+        post("/search", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String search1 = request.queryParams("search");
+            Country newCountry = countriesDao.findByname(search1);
+            model.put("team", newCountry);
+            return new ModelAndView(model, "search.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }
 

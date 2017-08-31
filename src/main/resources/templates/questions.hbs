@@ -1,8 +1,6 @@
 {{#partial "content"}}
+    <div class="container questions">
     <form action="/{{id}}/suggestions" method="POST">
-
-
-
         <!--<input id="ex1" type="text" data-slider-min="0" data-slider-max="5" data-slider-step="1" data-slider-value="3"/>-->
         <!--<span id="ex1CurrentSliderValLabel">Importance: <span id="ex1SliderVal">3</span></span>-->
         <div class="form-group">
@@ -61,20 +59,9 @@
                 <label><input type="radio" name="outdoorsy" value="5">Most important</label>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
         <button type="submit" class="btn btn-info">Continue</button>
     </form>
-
+    </div>
 {{/partial}}
 
 {{> layout2.hbs}}
